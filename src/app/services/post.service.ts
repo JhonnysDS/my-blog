@@ -20,4 +20,8 @@ export class PostService {
   
   }
 
+  createPost(post: Post) {
+    return this.http.post<Post[]>('http://localhost:5000/posts', post);
+  }
+  
 }

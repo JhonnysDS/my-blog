@@ -1,0 +1,10 @@
+<form [formGroup]="formCreate" (ngSubmit)="onSubmit(formCreate.value)">
+    <label> Titulo
+        <input type="text" formControlName="title">
+    </label>
+    <label>
+        <textarea formControlName="content"></textarea>
+    </label>
+    <br>
+    <input type="submit" value="Log in">
+</form>

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PostsComponent } from './general/components/posts/posts.component';
 import { PostComponent } from './general/components/post/post.component';
-
+import { CreatePostComponent } from './general/components/create-post/create-post.component';
 const routes: Routes = [
   { path: '', 
   redirectTo: 'posts', 
@@ -14,6 +14,11 @@ const routes: Routes = [
   {
     path: 'post/:id', 
     component: PostComponent
+  },
+
+  {
+    path: 'create-post',
+    component: CreatePostComponent
   }
 ];
 
