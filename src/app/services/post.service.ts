@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Post } from '../model/post.model';
+import { User } from '../model/User.model';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,7 @@ export class PostService {
   }
 
   createPost(post: Post) {
-    return this.http.post<Post[]>('http://localhost:5000/posts', post);
+    return this.http.post<Post[]>('http://localhost:5000/create-posts', post);
   }
   
 }
