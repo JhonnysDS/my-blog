@@ -4,6 +4,9 @@ import { PostsComponent } from './general/components/posts/posts.component';
 import { PostComponent } from './general/components/post/post.component';
 import { CreatePostComponent } from './general/components/create-post/create-post.component';
 import { RegisterComponent } from './general/components/register/register.component';
+import { LoginComponent } from './general/components/login/login.component';
+
+
 const routes: Routes = [
   { path: '', 
   redirectTo: 'posts', 
@@ -24,6 +27,10 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   }
 ];
 
