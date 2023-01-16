@@ -10,4 +10,14 @@
     <div *ngFor="let comment of comments">
         <p>{{ comment.content }}</p>
     </div>
+    <div>
+        <h3>Crear comentario</h3>
+        <form [formGroup]="form"  >
+            <div class="form-group">
+                <label for="content">Comentario</label>
+                <textarea formControlName="content" class="form-control"></textarea>
+              </div>
+              <button (click)="createComment()" [disabled]="!form.valid" class="btn btn-primary">Crear comentario</button>
+        </form>
+    </div>
 </div>
