@@ -5,3 +5,9 @@
         <p>Descripción: <span>{{post.content}}</span></p>
     </div>
 </div>
+<div>
+    <h1>Comentarios</h1>
+    <div *ngFor="let comment of comments">
+        <p>{{ comment.content }}</p>
+    </div>
+</div>
