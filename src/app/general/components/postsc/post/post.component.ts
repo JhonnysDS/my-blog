@@ -50,7 +50,8 @@ createComment() {
   this.commentsService.createComment(this.post.id, commentData)
 
   .subscribe(response => {    
-    this.router.navigate(['/post'])
+    this.router.navigate(['/post',this.post.id])
+    location.reload();
     // manejar la respuesta del servidor
   });
 }

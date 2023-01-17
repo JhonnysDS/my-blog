@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PostsComponent } from './general/components/posts/posts.component';
-import { PostComponent } from './general/components/post/post.component';
-import { CreatePostComponent } from './general/components/create-post/create-post.component';
-import { RegisterComponent } from './general/components/register/register.component';
-import { LoginComponent } from './general/components/login/login.component';
+import { PostsComponent } from './general/components/postsc/posts/posts.component';
+import { PostComponent } from './general/components/postsc/post/post.component';
+import { CreatePostComponent } from './general/components/postsc/create-post/create-post.component';
+import { RegisterComponent } from './general/components/auth/login/register/register.component';
+import { LoginComponent } from './general/components/auth/login/login.component';
 
 
 const routes: Routes = [
