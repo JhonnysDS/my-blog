@@ -10,8 +10,8 @@ import { CreatePostComponent } from './general/components/postsc/create-post/cre
 import { RegisterComponent } from './general/components/auth/login/register/register.component';
 import { LoginComponent } from './general/components/auth/login/login.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
-import { CreateCommentComponent } from './general/components/comments/create-comment/create-comment.component';
 import { ViewCommentsComponent } from './general/components/comments/view-comments/view-comments.component';
+import { CreateCommentsComponent } from './general/components/comments/create-comments/create-comments.component';
 
 @NgModule({
   declarations: [
@@ -21,8 +21,8 @@ import { ViewCommentsComponent } from './general/components/comments/view-commen
     CreatePostComponent,
     RegisterComponent,
     LoginComponent,
-    CreateCommentComponent,
     ViewCommentsComponent,
+    CreateCommentsComponent,
     
   ],
   imports: [

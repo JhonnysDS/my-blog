@@ -1,4 +1,7 @@
 <div>
+    <a routerLink="/posts">Ir al inicio</a>
+</div>
+<div>
     <h2>Destalles del post</h2>
     <div>
         <h1>Titulo:
@@ -13,14 +16,7 @@
     <div>
         <app-view-comments [postId]="post.id"></app-view-comments>
     </div>
-    <div>
-        <h3>Crear comentario</h3>
-        <form [formGroup]="form"  >
-            <div class="form-group">
-                <label for="content">Comentario</label>
-                <textarea formControlName="content" class="form-control"></textarea>
-              </div>
-              <button (click)="createComment()" [disabled]="!form.valid" class="btn btn-primary">Crear comentario</button>
-        </form>
-    </div>
+   <div>
+    <app-create-comments [postId]="post.id"></app-create-comments>
+   </div>
 </div>

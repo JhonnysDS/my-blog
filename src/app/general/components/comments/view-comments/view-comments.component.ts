@@ -9,7 +9,7 @@ import { Comment } from 'src/app/model/comment.model';
 export class ViewCommentsComponent implements OnInit {
   comments: any = []
 
-  @Input() postId: number = 2;
+  @Input() postId: number = 0;
 
   constructor(
     private commentsService:CommentsService,
@@ -21,13 +21,12 @@ export class ViewCommentsComponent implements OnInit {
   }
 
   getComments(){
-    // 
     setTimeout(()=>{
       this.commentsService.getCommentsById(this.postId)
       .subscribe(data => {  
         this.comments = data
       })
-    }, 1000
+    }, 500
     
     )
     
