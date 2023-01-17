@@ -18,4 +18,9 @@ export class CommentsService {
     return this.http.post<Comment[]>(`http://127.0.0.1:5000/posts/${id}/comments`, comment)
   }
 
+  deleteComment(id: number){
+    return this.http.delete<Comment[]>(`http://127.0.0.1:5000/comments/${id}`)
+  }
+
+
 }
