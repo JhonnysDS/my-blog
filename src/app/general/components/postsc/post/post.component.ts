@@ -11,7 +11,7 @@ import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./post.component.scss']
 })
 export class PostComponent implements OnInit {
-  post: Post = {
+     post: Post = {
     id: 0,
     title: '',
     content: '',
@@ -33,17 +33,17 @@ export class PostComponent implements OnInit {
   }
 
   ngOnInit(): void {
-     this.route.params
-      .subscribe(params => {  
+    this.route.params
+      .subscribe(params => {
         const id = params['id']
         this.postService.getPost(id)
-          .subscribe(data =>
-            this.post = data
-            )
-        this.commentsService.getCommentsById(id)
-          .subscribe(data => this.comments = data) // asignamos los comentarios a la propiedad del componente
-      })
-}
+          .subscribe(data => {
+            this.post = data;  
+            
+          });
+      });
+  }
+
 
 createComment() {
   const commentData = this.form.value;

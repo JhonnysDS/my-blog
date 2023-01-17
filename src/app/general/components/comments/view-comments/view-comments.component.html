@@ -1,0 +1,10 @@
+<div *ngIf="comments">
+    <h1>Comentarios</h1>
+    <div *ngFor="let comment of comments">
+      <p>{{ comment.content }}</p>
+    </div>
+  </div>
+  <div *ngIf="comments == 0">
+    <p>No hay comentarios para mostrar</p>
+  </div>
+  
