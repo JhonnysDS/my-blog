@@ -20,9 +20,8 @@ export class ViewCommentsComponent implements OnInit {
 
   ngOnInit(): void {
     this.userId = Number(localStorage.getItem("userId"));
-    console.log(this.userId);
 
-    
+
     this.getComments()
 
   }
