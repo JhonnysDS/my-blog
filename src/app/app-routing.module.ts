@@ -3,9 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { PostsComponent } from './general/components/postsc/posts/posts.component';
 import { PostComponent } from './general/components/postsc/post/post.component';
 import { CreatePostComponent } from './general/components/postsc/create-post/create-post.component';
-import { RegisterComponent } from './general/components/auth/login/register/register.component';
+import { RegisterComponent } from './general/components/auth/register/register.component';
 import { LoginComponent } from './general/components/auth/login/login.component';
-
+import { EditCommentsComponent } from './general/components/comments/edit-comments/edit-comments.component';
 
 const routes: Routes = [
   { path: '', 
@@ -31,6 +31,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'comment/:id',
+    component: EditCommentsComponent
   },
 
 ];

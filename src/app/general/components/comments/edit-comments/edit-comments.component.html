@@ -1,0 +1,10 @@
+<div>
+    <h3>Editar comentario</h3>
+    <form [formGroup]="form"  >
+        <div class="form-group">
+            <label for="content">Comentario</label>
+            <textarea formControlName="content" class="form-control"></textarea>
+          </div>
+          <button (click)="editComment()" [disabled]="!form.valid" class="btn btn-primary">Editar comentario</button>
+    </form>
+</div>

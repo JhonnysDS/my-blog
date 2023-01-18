@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, OnChanges  } from '@angular/core';
 import { CommentsService } from 'src/app/services/comments.service';
-import { Comment } from 'src/app/model/comment.model';
+import { Router } from '@angular/router'; 
 @Component({
   selector: 'app-view-comments',
   templateUrl: './view-comments.component.html',
@@ -13,6 +13,7 @@ export class ViewCommentsComponent implements OnInit {
 
   constructor(
     private commentsService:CommentsService,
+    private router:Router
 
   ) {
 
@@ -48,9 +49,11 @@ export class ViewCommentsComponent implements OnInit {
         location.reload();
         this.getComments()
       })
-    } else {
-      alert("No tienes permiso para eliminar este comentario")
     }
+  }
+
+  navigateToEditComment(id: number) {
+    this.router.navigate(['comment', id]);
   }
 
 }

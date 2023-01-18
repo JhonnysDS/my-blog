@@ -7,11 +7,12 @@ import { AppComponent } from './app.component';
 import { PostsComponent } from './general/components/postsc/posts/posts.component';
 import { PostComponent } from './general/components/postsc/post/post.component';
 import { CreatePostComponent } from './general/components/postsc/create-post/create-post.component';
-import { RegisterComponent } from './general/components/auth/login/register/register.component';
+import { RegisterComponent } from './general/components/auth/register/register.component';
 import { LoginComponent } from './general/components/auth/login/login.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { ViewCommentsComponent } from './general/components/comments/view-comments/view-comments.component';
 import { CreateCommentsComponent } from './general/components/comments/create-comments/create-comments.component';
+import { EditCommentsComponent } from './general/components/comments/edit-comments/edit-comments.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { CreateCommentsComponent } from './general/components/comments/create-co
     LoginComponent,
     ViewCommentsComponent,
     CreateCommentsComponent,
+    EditCommentsComponent,
     
   ],
   imports: [

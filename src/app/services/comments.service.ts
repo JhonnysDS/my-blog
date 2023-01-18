@@ -14,8 +14,17 @@ export class CommentsService {
     return this.http.get(`http://127.0.0.1:5000/posts/${id}/comments`)
   }
 
+  getComment(id: number){
+    return this.http.get<Comment[]>(`http://127.0.0.1:5000/comments/${id}`)
+
+  }
+
   createComment(id: number, comment: Comment){
     return this.http.post<Comment[]>(`http://127.0.0.1:5000/posts/${id}/comments`, comment)
+  }
+
+  editComment(id: number, comment: Comment){
+    return this.http.put<Comment[]>(`http://127.0.0.1:5000/comments/${id}`, comment)
   }
 
   deleteComment(id: number){
