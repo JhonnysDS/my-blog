@@ -14,10 +14,15 @@ export class ViewCommentsComponent implements OnInit {
   constructor(
     private commentsService:CommentsService,
 
-  ) { }
+  ) {
+
+   }
 
   ngOnInit(): void {
-    this.userId = Number(localStorage.getItem("user_id"));
+    this.userId = Number(localStorage.getItem("userId"));
+    console.log(this.userId);
+
+    
     this.getComments()
 
   }
