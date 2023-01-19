@@ -52,7 +52,7 @@ export class ViewCommentsComponent implements OnInit {
     }
   }
 
-  navigateToEditComment(id: number) {
+  editComment(id: number) {
     this.router.navigate(['comment', id]);
   }
 

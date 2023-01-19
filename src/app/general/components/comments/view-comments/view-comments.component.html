@@ -2,14 +2,10 @@
     <h1>Comentarios</h1>
     <div *ngFor="let comment of comments">
       <p>{{ comment.content }}</p>
-      <button *ngIf="userId == comment.user_id" (click)="navigateToEditComment(comment.id)">Editar</button>
+      <button *ngIf="userId == comment.user_id" (click)="editComment(comment.id)">Editar</button>
       <button  *ngIf="userId == comment.user_id"  (click)="deleteComment(comment.id)">Eliminar</button>
     </div>
   </div>
   <div *ngIf="comments == 0">
     <progress></progress>
   </div>
-  <!-- <div *ngIf="comments == '[object Object]'">
-    <p>No hay comentario para mostrar </p>
-  </div> -->
-  
