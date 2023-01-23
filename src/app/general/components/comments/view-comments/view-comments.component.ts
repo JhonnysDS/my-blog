@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges  } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, Output  } from '@angular/core';
 import { CommentsService } from 'src/app/services/comments.service';
 import { Router } from '@angular/router'; 
 @Component({
@@ -10,7 +10,6 @@ export class ViewCommentsComponent implements OnInit {
   comments: any = [];
   userId: number = 0;
   @Input() postId: number = 0;
-
   constructor(
     private commentsService:CommentsService,
     private router:Router
@@ -54,6 +53,7 @@ export class ViewCommentsComponent implements OnInit {
 
   editComment(id: number) {
     this.router.navigate(['comment', id]);
+     
   }
 
 }

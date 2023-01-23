@@ -13,7 +13,7 @@ export class EditCommentsComponent implements OnInit {
   contentComment: String = '';
 
   form: FormGroup;
-  @Input() postId: number = 0
+  postId: any = 0
   commentId: number = 0;
   constructor(
     private route: ActivatedRoute,
@@ -41,6 +41,7 @@ export class EditCommentsComponent implements OnInit {
     .subscribe(comments => {
       if (comments && comments.length > 0){
         this.contentComment = comments[0].content
+        this.postId = comments[0].post_id
      }
    });
     }
