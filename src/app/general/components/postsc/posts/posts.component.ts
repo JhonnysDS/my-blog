@@ -31,4 +31,8 @@ export class PostsComponent implements OnInit {
     });
     this.router.navigate(['/post', post.id])
   }
+
+  editPost(id: number){
+    this.router.navigate(['edit-post', id]);
+  }
 }

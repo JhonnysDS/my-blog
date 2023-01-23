@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Post } from '../model/post.model';
 
 @Injectable({
@@ -22,6 +22,11 @@ export class PostService {
 
   createPost(post: Post) {
     return this.http.post<Post[]>('http://localhost:5000/create-posts', post);
+  }
+
+  updatePost(id:number, title: string, content: string ){
+    const body = { title: title, content: content };
+    return this.http.put<Post[]>( `http://127.0.0.1:5000/posts/${id}`, body);
   }
   
 }

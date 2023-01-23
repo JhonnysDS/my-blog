@@ -13,6 +13,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { ViewCommentsComponent } from './general/components/comments/view-comments/view-comments.component';
 import { CreateCommentsComponent } from './general/components/comments/create-comments/create-comments.component';
 import { EditCommentsComponent } from './general/components/comments/edit-comments/edit-comments.component';
+import { EditPostComponent } from './general/components/postsc/edit-post/edit-post.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { EditCommentsComponent } from './general/components/comments/edit-commen
     ViewCommentsComponent,
     CreateCommentsComponent,
     EditCommentsComponent,
+    EditPostComponent,
     
   ],
   imports: [

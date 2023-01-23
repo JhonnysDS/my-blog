@@ -1,0 +1,18 @@
+<div>
+    <h3>Editar Post </h3>
+    <div>
+
+    </div>
+
+
+    <form [formGroup]="form"  >
+        <div class="form-group">
+            <label for="title">Titulo</label>
+            <input [(ngModel)]="post.title" formControlName="title" type="text" name="title">
+            <label for="content">Descripción</label>
+            <textarea [(ngModel)]="post.content" formControlName="content" class="form-control"></textarea>
+          </div>
+          <button (click)="editPost()" class="btn btn-primary">Editar post</button>
+
+    </form>
+</div>  
