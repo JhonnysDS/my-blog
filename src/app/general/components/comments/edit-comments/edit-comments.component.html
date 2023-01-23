@@ -1,10 +1,14 @@
 <div>
     <h3>Editar comentario id: {{commentId}} </h3>
-    <h2>{{commentContent}}</h2>
+    <div>
+
+    </div>
+    <p>{{contentComment}}</p>
+
     <form [formGroup]="form"  >
         <div class="form-group">
             <label for="content">Comentario</label>
-            <textarea  formControlName="content" class="form-control"></textarea>
+            <textarea [(ngModel)]="contentComment"  formControlName="content" class="form-control"></textarea>
           </div>
           <button (click)="editComment()" [disabled]="!form.valid" class="btn btn-primary">Editar comentario</button>
           <button (click)="getComment()">obtener</button>

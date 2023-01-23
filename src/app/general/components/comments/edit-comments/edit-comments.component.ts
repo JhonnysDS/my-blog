@@ -2,13 +2,16 @@ import { Component, Input, OnInit } from '@angular/core';
 import { CommentsService } from 'src/app/services/comments.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { Comment } from 'src/app/model/comment.model';
 @Component({
   selector: 'app-edit-comments',
   templateUrl: './edit-comments.component.html',
   styleUrls: ['./edit-comments.component.scss']
 })
 export class EditCommentsComponent implements OnInit {
-  commentContent: string = '';
+
+  contentComment: String = '';
+
   form: FormGroup;
   @Input() postId: number = 0
   commentId: number = 0;
@@ -27,6 +30,7 @@ export class EditCommentsComponent implements OnInit {
     //Tomar la id del comentario, para implementarlo en el getComment
     this.route.paramMap.subscribe(params => {
       this.commentId = Number(params.get('id'))
+      
     })
 
     this.getComment()
@@ -34,11 +38,11 @@ export class EditCommentsComponent implements OnInit {
 
   getComment(){
     this.commentsService.getComment(this.commentId)
-    .subscribe(comment => 
-      console.log(comment)
-
-      
-      );
+    .subscribe(comments => {
+      if (comments && comments.length > 0){
+        this.contentComment = comments[0].content
+     }
+   });
     }
 
   editComment(){
