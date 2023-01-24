@@ -11,5 +11,7 @@
 <h3>{{post.title}}</h3>
 <button (click)="viewPost(post)">Ver detalles</button>
 <button *ngIf="userId == post.user_id" (click)="editPost(post.id)">Editar post</button>
+<button *ngIf="userId == post.user_id" (click)="deletePost(post.id)">Eliminar post</button>
+
 </div>
 

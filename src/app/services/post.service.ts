@@ -28,5 +28,9 @@ export class PostService {
     const body = { title: title, content: content };
     return this.http.put<Post[]>( `http://127.0.0.1:5000/posts/${id}`, body);
   }
+
+  deletePost(id: number){
+    return this.http.delete<Post[]>(`http://127.0.0.1:5000/posts/${id}`)
+  }
   
 }

@@ -39,4 +39,16 @@ export class PostsComponent implements OnInit {
   editPost(id: number){
     this.router.navigate(['edit-post', id]);
   }
+  deletePost(id: number){
+    if(this.confirmDelete()){
+      this.postService.deletePost(id)
+      .subscribe(response => {
+        location.reload()
+      })
+    }
+  }
+
+  confirmDelete(): boolean {
+    return confirm("¿Estás seguro de que quieres eliminer este comentario?")
+  }
 }
