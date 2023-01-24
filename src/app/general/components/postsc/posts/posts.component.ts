@@ -51,4 +51,12 @@ export class PostsComponent implements OnInit {
   confirmDelete(): boolean {
     return confirm("¿Estás seguro de que quieres eliminer este comentario?")
   }
+
+  logout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('userId');
+    this.router.navigate(['/login']);
+
+  }
+  
 }
