@@ -14,8 +14,10 @@ export class EditPostComponent implements OnInit {
   post: Post = {
     id:0,
     title: '',
-    content: ''
+    content: '',
+    user_id: 0
   }
+  
   constructor(
     private formBuilder: FormBuilder,
     private postService:PostService,

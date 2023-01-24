@@ -12,7 +12,8 @@ import { CommentsService } from 'src/app/services/comments.service';
 export class PostsComponent implements OnInit {
   posts: Post[] = [];
   comments: any  = [];
-
+  userId: number = 0;
+  
   constructor(
     private postService: PostService,
     private commentsService: CommentsService,
@@ -23,6 +24,9 @@ export class PostsComponent implements OnInit {
     this.postService.getAllPost()
       .subscribe(data =>
         this.posts = data)
+
+
+        this.userId = Number(localStorage.getItem("userId"));
   }
 
   viewPost(post: Post) {

@@ -14,6 +14,7 @@ export class PostComponent implements OnInit {
     id: 0,
     title: '',
     content: '',
+    user_id: 0
   };
   comments: any = []; // nueva propiedad para almacenar los comentarios
   constructor(
