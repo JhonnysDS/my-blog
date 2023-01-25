@@ -1,16 +1,32 @@
-.product-detail {
-    position: fixed;
-    top: 0;
-    left: 60%;
-    bottom: 0;
-    right: 0;
-    background: white;
+.blog-post {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  border-bottom: 1px solid #ccc;
+
+  .post-title {
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+  }
+
+  .post-actions {
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    transition: all ease-out .5s;
-    transform: translateX(100%);
-    &.active {
-      transform: translateX(0);
+    align-items: center;
+
+    button {
+      background: none;
+      border: none;
+      color: #666;
+      font-size: 14px;
+      margin-left: 8px;
+      cursor: pointer;
+
+      &:hover {
+        color: #333;
+      }
     }
   }
+}

@@ -8,12 +8,13 @@
 <button (click)="logout()">logout</button>
 
 
-</div>
-<div *ngFor="let post of posts">
-<h3>{{post.title}}</h3>
-<button (click)="viewPost(post)">Ver detalles</button>
-<button *ngIf="userId == post.user_id" (click)="editPost(post.id)">Editar post</button>
-<button *ngIf="userId == post.user_id" (click)="deletePost(post.id)">Eliminar post</button>
 
-</div>
+<div *ngFor="let post of posts" class="blog-post">
+    <a [routerLink]="['/post', post.id]" class="post-title">{{ post.title }}</a>
+    <div class="post-actions">
+        <button (click)="viewPost(post)">Ver detalles</button>
+        <button *ngIf="userId == post.user_id" (click)="editPost(post.id)">Editar post</button>
+        <button *ngIf="userId == post.user_id" (click)="deletePost(post.id)">Eliminar post</button>
+    </div>
+  </div>
 

@@ -1,11 +1,12 @@
-<div *ngIf="comments">
-    <h1>Comentarios</h1>
-    <div *ngFor="let comment of comments">
-      <p>{{ comment.content }}</p>
-      <button *ngIf="userId == comment.user_id" (click)="editComment(comment.id)">Editar</button>
-      <button  *ngIf="userId == comment.user_id"  (click)="deleteComment(comment.id)">Eliminar</button>
-    </div>
+<div class="comments-container" *ngIf="comments">
+  <h1>Comentarios</h1>
+  <div class="comment" *ngFor="let comment of comments">
+    <h4>Comentario:</h4>
+    <p>{{ comment.content }}</p>
+    <button *ngIf="userId == comment.user_id" (click)="editComment(comment.id)" class="button">Editar</button>
+    <button *ngIf="userId == comment.user_id" (click)="deleteComment(comment.id)" class="button btnDelete">Eliminar</button>
   </div>
-  <div *ngIf="comments == 0">
-    <progress></progress>
-  </div>
+</div>
+<div class="progress-container" *ngIf="comments == 0">
+  <progress class="loading-progress"></progress>
+</div>

@@ -1,0 +1,24 @@
+.container{
+        a{
+        font-size: 18px;
+        text-decoration: none;
+        padding: 10px;
+        background-color: rgb(0, 255, 153);
+        margin: 10px 0px;
+    }
+    .post-details{
+        background-color: rgba(0, 35, 193, 0.248);
+        padding: 5px;
+        margin: 15px 0px;
+        border-radius: 12px;
+        text-align: center;
+        div{
+            h1{
+                color: rgb(255, 73, 73);
+            }
+            p{
+                text-align: justify;
+            }
+        }
+    }
+}

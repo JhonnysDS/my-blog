@@ -1,22 +1,17 @@
-<div>
+<div class="container">
     <a routerLink="/posts">Ir al inicio</a>
-</div>
-<div>
-    <h2>Destalles del post</h2>
-    <div>
-        <h1>Titulo:
-             <span>{{post.title}}</span></h1>
-        <p>Descripción: <span>{{post.content}}</span></p>
+    <div class="post-details">
+        <div>
+            <h1>{{post.title}}</h1>
+            <p>{{post.content}}</p>
+        </div>
     </div>
-</div>
-<div>
-    <div *ngFor="let comment of comments">
-        <p>{{ comment.content }}</p>
-    </div>
-    <div>
+    <div class="comments">
+        <div *ngFor="let comment of comments">
+            <p>{{ comment.content }}</p>
+        </div>
         <app-view-comments [postId]="post.id"></app-view-comments>
+        <app-create-comments [postId]="post.id"></app-create-comments>
     </div>
-   <div>
-    <app-create-comments [postId]="post.id"></app-create-comments>
-   </div>
+
 </div>

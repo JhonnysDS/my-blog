@@ -14,6 +14,8 @@ import { ViewCommentsComponent } from './general/components/comments/view-commen
 import { CreateCommentsComponent } from './general/components/comments/create-comments/create-comments.component';
 import { EditCommentsComponent } from './general/components/comments/edit-comments/edit-comments.component';
 import { EditPostComponent } from './general/components/postsc/edit-post/edit-post.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { EditPostComponent } from './general/components/postsc/edit-post/edit-po
     CreateCommentsComponent,
     EditCommentsComponent,
     EditPostComponent,
+    SidenavComponent,
     
   ],
   imports: [
@@ -35,6 +38,7 @@ import { EditPostComponent } from './general/components/postsc/edit-post/edit-po
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
 
   ],
   providers: [ { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },],
