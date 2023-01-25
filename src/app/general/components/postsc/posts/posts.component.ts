@@ -13,7 +13,7 @@ export class PostsComponent implements OnInit {
   posts: Post[] = [];
   comments: any  = [];
   userId: number = 0;
-  
+  showMenu = false
   constructor(
     private postService: PostService,
     private commentsService: CommentsService,
@@ -27,6 +27,10 @@ export class PostsComponent implements OnInit {
 
 
         this.userId = Number(localStorage.getItem("userId"));
+  }
+
+  toggleMenu() {
+    this.showMenu = !this.showMenu;
   }
 
   viewPost(post: Post) {

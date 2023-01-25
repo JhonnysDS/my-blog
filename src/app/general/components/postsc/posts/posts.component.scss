@@ -1,16 +1,24 @@
 section{
   display: flex;
-  div{
-    width: 400px;
+  height: auto;
+  .div-container{
+    max-width: 400px;
     margin: 20px;
-    height: 100%;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    height: auto;
+
     .example-card {  
-      height: 230px;
+      height: 80%;
+      margin: 5px;
       .mat-card-header{
         font-size: 25px;
         color: red;
         text-transform: uppercase;
+        // background-color: red;
+        display: flex;
+        justify-content: space-between;
+        .div-tree-points{
+          color: black;
+        }
       }
       margin: 15px;
       p{
@@ -19,10 +27,40 @@ section{
         
       }
       .mat-card-actions{
-        position:absolute;
-        bottom: 10px;
+
       }
     }
 
     }
+}
+
+@media screen and (max-width: 1181px) {
+  section{
+    display: block;
+    .div-container{
+      margin: 5px;
+      height: 350px;
+      .example-card {  
+        height: 90%;
+        .mat-card-header{
+          font-size: 20px;
+          color: red;
+          text-transform: uppercase;
+        }
+        margin: 15px;
+        p{
+          font-size: 18px;
+          display: block;
+        }
+        .mat-card-actions{
+          position:absolute;
+          bottom: 20px;
+          button{
+            padding: 5px;
+          }
+        }
+      }
+  
+      }
+  }
 }
