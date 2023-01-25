@@ -38,9 +38,13 @@
             align-items: center;
             margin: 0px 20px;
            ul{
-                color: white;
                 cursor: pointer;
                 font-size: 25px;
+                li{
+                    a{
+                        color: white;
+                    }
+                }
             }
 
            
