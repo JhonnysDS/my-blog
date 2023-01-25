@@ -21,19 +21,22 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
   declarations: [],
   imports: [
     CommonModule,
-    MatInputModule,
+
+  ],
+  exports: [
     MatFormFieldModule,
+    MatInputModule,
     MatButtonModule,
     MatRadioModule,
     MatSidenavModule,
     MatIconModule,
-    MatDialogModule,
-    MatTableModule,
     MatCardModule,
-    MatSelectModule,
-    MatMenuModule,
-    MatProgressBarModule,
+    MatTableModule,
+    MatDialogModule,
     MatCheckboxModule,
+    MatProgressBarModule,
+    MatMenuModule,
+    MatSelectModule,
     MatExpansionModule,
     MatDatepickerModule
   ]

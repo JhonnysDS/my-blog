@@ -5,11 +5,13 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.scss']
 })
-export class SidenavComponent implements OnInit {
+export class SidenavComponent {
 
-  constructor() { }
+  showFiller = false;
+  isVisible = false;
 
-  ngOnInit(): void {
+  toggle() {
+    this.isVisible = !this.isVisible;
   }
 
 }

@@ -16,7 +16,7 @@ import { EditCommentsComponent } from './general/components/comments/edit-commen
 import { EditPostComponent } from './general/components/postsc/edit-post/edit-post.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { MaterialModule } from './material/material.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +39,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    MaterialModule
 
   ],
   providers: [ { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },],

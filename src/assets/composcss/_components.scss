@@ -1,0 +1,484 @@
+$color1:#142139;
+$color2:rgb(74, 114, 176);
+$color3:#FFF;
+$color4:#000;
+$color5:#4975B3;
+$color6:#1890c0;
+$color7:#99A3A4;
+$color8:#17202A;
+$color9:#4A72B0;
+$color10:#303C54;
+
+@font-face{
+    font-family: mst-regular;
+    src:url(../fonts/montserrate/Montserrat-Regular.otf); 
+}
+
+@font-face{
+    font-family: mst-light; 
+    src:url(../fonts/montserrate/Montserrat-Light.otf);
+}
+
+@font-face{
+    font-family: mst-medium;
+    src:url(../fonts/montserrate/Montserrat-Medium.otf); 
+}
+
+@font-face{
+    font-family: mst-bold;
+    src:url(../fonts/montserrate/Montserrat-Bold.otf); 
+}
+
+@font-face {
+    font-family: Reboto-medium;
+    src: url(../fonts/roboto/Roboto-Medium.ttf);
+}
+@font-face {
+    font-family: Reboto-regular;
+    src: url(../fonts/roboto/Roboto-Regular.ttf);
+} 
+
+%container-login-signup{
+    background-color: $color2;
+    width: 100%;
+    min-width: 320px;
+    height: 100vh;
+    min-height: 500px;
+    padding: 20px;
+}
+%select-signup{
+    max-width: 400px;
+    width: 100%;
+    font: 1.3rem mst-light;
+    text-align: center;
+    padding: 12px;
+    border: 0px;
+    border-radius: 50px;
+}
+%input-style{
+    background: $color3;
+    max-width: 400px;
+    width: 100%;
+    font: 1.3rem mst-light;
+    text-align: center;
+    padding: 12px;
+    border: 0px;
+    border-radius: 50px;
+
+    @media only screen and (max-width: 1400px) {
+        max-width: 320px;
+        padding: 10px;
+        font: 1.1rem mst-light;
+    }
+    @media only screen and (max-width: 768px) {
+        max-width: 280px;
+        padding: 9px;
+        font: 1rem mst-light;
+    }
+}
+
+%label-style{
+    font: 1.4rem mst-medium;
+    display: block;
+    margin-bottom: 15px;
+
+    @media only screen and (max-width: 1400px) {
+        font: 1.3rem mst-medium;
+        margin-bottom: 10px;
+    }
+    @media only screen and (max-width: 768px) {
+        font: 1.1rem mst-medium;
+    }
+}
+
+%input-submit{
+    color: $color3;
+    background-color: $color1;
+    max-width: 300px;
+    padding: 10px;
+    cursor: pointer;
+
+    @media only screen and (max-width: 1400px) {
+        max-width: 250px;
+        font-size: 1.2rem;
+    }
+    @media only screen and (max-width: 768px) {
+        max-width: 200px;
+        font-size: 1.1rem;
+    }
+}
+
+%style-button-table{
+    color: $color3;
+    padding: 15px;
+    border-style: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+%center-element{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+%element-100p{
+    width: 100%;
+    height: 100%;
+}
+%img-cover{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+%img-contain{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+%hide{
+    visibility: hidden;
+    opacity: 0;
+}
+
+%show{
+    visibility: visible;
+    opacity: 1.0;
+}
+
+@mixin scale($scale-num){
+    -moz-transform: scale($scale-num);
+    -webkit-transform: scale($scale-num);
+    -o-transform: scale($scale-num);
+    -ms-transform: scale($scale-num);
+    transform: scale($scale-num);
+}
+@mixin background-imgpath($imagepath,$bg-size,$repeat,$position){
+    background: url($imagepath);
+    background-size: $bg-size;
+    background-repeat: $repeat;
+    background-position: $position;
+}
+@mixin background-cover-gradient($rbga1,$rbga2,$imagepath,$bg-size,$repeat,$position){
+    background: linear-gradient($rbga1,$rbga2),url($imagepath);
+    background-size: $bg-size;
+    background-repeat: $repeat;
+    background-position: $position;
+}
+@mixin transition($property,$time){
+    -webkit-transition: $property $time;
+    -moz-transition: $property $time;
+    -o-transition: $property $time;
+    -ms-transition: $property $time;
+    transition: $property $time;
+}
+@mixin two-cols($col1,$col2){
+    display: grid;
+    grid-template-columns: $col1 $col2;
+}
+@mixin three-cols($col1,$col2,$col3){
+    display: grid;
+    grid-template-columns: $col1 $col2 $col3;
+}
+@mixin two-cols-gridp($col1,$col2,$gridg){
+    display: grid;
+    grid-template-columns: $col1 $col2;
+    grid-gap: $gridg;
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(0,0,0,0); 
+    outline: none;
+}
+
+.mt-10{
+    margin-top: 10px;
+}
+.mt-20{
+    margin-top: 20px;
+}
+.mt-30{
+    margin-top: 30px;
+}
+.mt-40{
+    margin-top: 40px;
+}
+.mt-50{
+    margin-top: 50px;
+}
+.ml-10{
+    margin-left: 10px;
+}
+.ml-20{
+    margin-left: 20px;
+}
+.ml-30{
+    margin-left: 30px;
+}
+.ml-40{
+    margin-left: 40px;
+}
+.ml-50{
+    margin-left: 50px;
+}
+.mr-10{
+    margin-right: 10px;
+}
+.mr-20{
+    margin-right: 20px;
+}
+.mr-30{
+    margin-right: 30px;
+}
+.mr-40{
+    margin-right: 40px;
+}
+.mr-50{
+    margin-right: 50px;
+}
+.mb-10{
+    margin-bottom: 10px;
+}
+.mb-20{
+    margin-bottom: 20px;
+}
+.mb-30{
+    margin-bottom: 30px;
+}
+.mb-40{
+    margin-bottom: 40px;
+}
+.mb-50{
+    margin-bottom: 50px;
+}
+
+.pt-10{
+    padding-top: 10px;
+}
+.pt-20{
+    padding-top: 20px;
+}
+.pt-30{
+    padding-top: 30px;
+}
+.pt-40{
+    padding-top: 40px;
+}
+.pt-50{
+    padding-top: 50px;
+}
+.pl-10{
+    padding-left: 10px;
+}
+.pl-20{
+    padding-left: 20px;
+}
+.pl-30{
+    padding-left: 30px;
+}
+.pl-40{
+    padding-left: 40px;
+}
+.pl-50{
+    padding-left: 50px;
+}
+.pr-10{
+    padding-right: 10px;
+}
+.pr-20{
+    padding-right: 20px;
+}
+.pr-30{
+    padding-right: 30px;
+}
+.pr-40{
+    padding-right: 40px;
+}
+.pr-50{
+    padding-right: 50px;
+}
+.pb-10{
+    padding-bottom: 10px;
+}
+.pb-20{
+    padding-bottom: 20px;
+}
+.pb-30{
+    padding-bottom: 30px;
+}
+.pb-40{
+    padding-bottom: 40px;
+}
+.pb-50{
+    padding-bottom: 50px;
+}
+
+a{
+    color: black;
+    text-decoration: none;
+}
+ul,
+ol{
+    list-style: none;
+}
+.center{
+    text-align: center;
+}
+.left{
+    text-align: left;
+}
+.right{
+    text-align: right;
+}
+.margin-top20{
+    margin-top: 20px;
+}
+
+.link-box{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+.green,
+.red{
+    color: #FFF;
+    background-color: #2ECC71;
+    cursor: pointer;
+    @include transition(all,0.5s);
+
+    &:hover{
+        background-color: #28B463;
+    }
+}
+
+.red{
+    background-color:#e23737;
+
+    &:hover{
+        background-color:#c03a3a;
+    }
+}
+
+.title-1{
+    font: 1.8rem mst-bold;
+}
+
+.title-2{
+    font: 1.5rem mst-bold;
+}
+
+.title-3{
+    font: 1.2rem mst-light;
+}
+
+.title-4{
+    font: 1rem mst-medium;
+}
+
+.title-5{
+    font: 1rem mst-bold;
+}
+
+.title-6{
+    font: 1rem mst-bold;
+}
+
+.title-7{
+    font: 1.1rem mst-light;
+}
+
+.button-seemost{
+    font: 1.1rem roboto-regular;
+    padding: 15px 30px 15px 30px;
+    border: 0px;
+    border-radius: 5px;
+}
+
+.button-form{
+    font: 1rem roboto-regular;
+    padding: 10px 30px 10px 30px;
+    border: 0px;
+}
+
+.notifi-profile{
+    display: flex;
+    align-items: center;
+
+    .notifications{
+        position: relative;
+        text-align: center;
+        
+        i{
+            color: $color3;
+            font-size: 1.4rem;
+        }
+        span{
+            position: absolute;
+            right: -6px;
+            color: $color2;
+            background-color: $color3;
+            width: 15px;
+            height: 15px;
+            font:0.70rem mst-bold;
+            border-radius: 20px;
+        }
+    }
+    .profile{
+        position: relative;
+        margin-left: 20px;
+        text-align: center;
+
+        span{
+            background-color: $color1;
+            width: 40px;
+            height: 40px;
+            color: $color3;
+            font: 1.5rem mst-regular;
+            display: block;
+            padding-top: 5px;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+
+        .profile-menu{
+            position: absolute;
+            top: 103%;
+            right: -28px;
+            background-color: $color1;
+            width: 170px;
+            padding: 5px;
+            display: none;
+            z-index: 100;
+
+            li{
+                font: 1rem mst-regular;
+                margin-bottom: 5px;
+
+                a{
+                    color: $color3;
+                    padding: 7px;
+                    display: block;
+                }
+
+                &:last-child{
+                    margin-bottom: 0px;
+                }
+
+                &:hover{
+                    background-color: $color3;
+
+                    a{
+                        color: $color4;
+                    }
+                }
+            }
+        }
+    }
+}
