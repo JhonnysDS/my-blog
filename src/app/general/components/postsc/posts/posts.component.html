@@ -3,8 +3,8 @@
         <mat-card class="example-card">
     
             <mat-card-header  class="mat-card-header">
-                <mat-card-title class="mat-card-title">{{ post.title }}</mat-card-title>
-                <div class="div-tree-points">
+                <mat-card-title (click)="viewPost(post)" class="mat-card-title">{{ post.title }}</mat-card-title>
+                <div *ngIf="userId == post.user_id" class="div-tree-points">
                     <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
                         <mat-icon>more_vert</mat-icon>
                     </button>

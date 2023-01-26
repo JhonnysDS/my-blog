@@ -16,6 +16,9 @@ section{
         // background-color: red;
         display: flex;
         justify-content: space-between;
+        .mat-card-title{
+          cursor: pointer;
+        }
         .div-tree-points{
           color: black;
         }
@@ -27,7 +30,8 @@ section{
         
       }
       .mat-card-actions{
-
+        position: absolute;
+        bottom: 15px;
       }
     }
 
