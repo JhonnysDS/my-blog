@@ -1,16 +1,33 @@
-<div>
-    <form [formGroup]="form" (ngSubmit)="onSubmitForm()" >
-        <div>
-            <label>Usuario</label>
-            <input formControlName="username" type="text">
-        </div>
-        <div>
-            <label for="">Contraseña</label>
-            <input formControlName="password" type="password">
-        </div>
-        <div>
-            <button type="submit">Iniciar sesión</button>
-        </div>
+<div class="div-container-overall">
+    <div class="div-container-son">
+        <form [formGroup]="form" (ngSubmit)="onSubmitForm()">
+            <div class="form-control">
+                <input formControlName="username" type="value" required="">
+                <label>
+                    <span style="transition-delay:0ms">U</span><span style="transition-delay:50ms">s</span><span
+                        style="transition-delay:100ms">u</span><span style="transition-delay:150ms">a</span><span
+                        style="transition-delay:200ms">r</span><span style="transition-delay:250ms">i</span><span
+                        style="transition-delay:300ms">o</span>
+                </label>
+            </div>
 
-    </form>
+            <div class="form-control">
+                <input formControlName="password" type="password" required="">
+                <label>
+                    <span style="transition-delay:0ms">C</span><span style="transition-delay:50ms">o</span><span
+                        style="transition-delay:100ms">n</span><span style="transition-delay:150ms">t</span><span
+                        style="transition-delay:200ms">r</span><span style="transition-delay:250ms">a</span><span
+                        style="transition-delay:300ms">s</span><span style="transition-delay:350ms">e</span><span
+                        style="transition-delay:400ms">ñ</span><span style="transition-delay:450ms">a</span>
+                </label>
+            </div>
+            <div class="div-button">
+                <button type="submit">
+                    Ingresar
+                  </button>
+            </div>
+
+        </form>
+    </div>
+
 </div>
