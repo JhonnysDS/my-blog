@@ -46,25 +46,30 @@ section{
     grid-template-columns: repeat(3, 1fr);
   }
 }
-@media (max-width: 1387px) {
+
+@media (max-width: 932px) {
+  section{
+
+    .div-container{
+      .example-card{
+        width: 300px;
+      }
+    }
+  }
+}
+
+
+
+@media screen and (max-width: 1387px) {
   section{
     grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media (max-width: 719px) {
-  section{
-    grid-template-columns: repeat(1, 1fr);
-  }
-}
-@media screen and (max-width: 1181px) {
-  section{
     .div-container{
       height: 350px;
       
       .example-card {  
         margin: 0px;
 
-        width: 300px;
+
         height: 90%;
         .mat-card-header{
           font-size: 20px;
@@ -83,5 +88,13 @@ section{
       }
   
       }
+  }
+
+
+}
+
+@media (max-width: 738px) {
+  section{
+    grid-template-columns: repeat(1, 1fr);
   }
 }
