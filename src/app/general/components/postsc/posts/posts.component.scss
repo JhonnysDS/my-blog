@@ -1,14 +1,17 @@
 section{
-  display: flex;
-  height: auto;
+   display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: center; /* centra los elementos en el eje horizontal */
+    align-items: center; /* centra los elementos en el eje vertical */
   .div-container{
     max-width: 400px;
     margin: 20px;
-    height: auto;
+    height: 300px;
 
     .example-card {  
       height: 80%;
       margin: 5px;
+      width: 400px;
       .mat-card-header{
         font-size: 25px;
         color: red;
@@ -38,20 +41,34 @@ section{
     }
 }
 
+@media (max-width: 1857px) {
+  section{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 1387px) {
+  section{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 719px) {
+  section{
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
 @media screen and (max-width: 1181px) {
   section{
-    display: block;
     .div-container{
-      margin: 5px;
       height: 350px;
+      
       .example-card {  
+        margin: 0px;
+
+        width: 300px;
         height: 90%;
         .mat-card-header{
           font-size: 20px;
-          color: red;
-          text-transform: uppercase;
         }
-        margin: 15px;
         p{
           font-size: 18px;
           display: block;

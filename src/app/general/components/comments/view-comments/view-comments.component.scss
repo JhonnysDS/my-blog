@@ -12,36 +12,7 @@
         margin-bottom: 16px;
         text-align: center;
         padding: 10px;
-      h4{
-        font-weight: lighter;
-        color: red;
-        margin: 0px;
-        font-size: 15px;
-      }
-      p {
-        font-size: 20px;
-        margin: 0px 5px;
-        padding: 5px;
-        text-align: justify;
-      }
 
-      .button {
-        font-size: 14px;
-        padding: 8px 16px;
-        border-radius: 4px;
-        background-color: #007bff;
-        border: none;
-        color: #fff;
-        cursor: pointer;
-        margin-right: 8px;
-        &:hover {
-          background-color: #0056b3;
-        }
-      }
-      .btnDelete{
-        background-color: #ff0000;
-
-      }
     }
 
   }
@@ -51,6 +22,32 @@
   justify-content: center;
   align-items: center;
   height: 50px;
+
+  .ball {
+    --size: 20px;
+    --timing: 0.7s;
+    --displace: 70px;
+    border-radius: 50%;
+    width: var(--size);
+    height: var(--size);
+    background: #000;
+    margin-right: var(--displace);
+    animation: animation321 var(--timing) infinite alternate
+       cubic-bezier(0.68, -0.55, 0.265, 1.55);
+   }
+   
+   @keyframes animation321 {
+    0% {
+     background: #4284f3;
+     transform: translateX(var(--displace));
+    }
+   
+    100% {
+     background: #ea4335;
+     transform: translateX(00px);
+    }
+   }
+   
 
   progress {
     width: 50%;

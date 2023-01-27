@@ -1,12 +1,26 @@
 <div class="comments-container" *ngIf="comments">
   <h1>Comentarios</h1>
   <div class="comment" *ngFor="let comment of comments">
-    <h4>Comentario:</h4>
-    <p>{{ comment.content }}</p>
-    <button *ngIf="userId == comment.user_id" (click)="editComment(comment.id)" class="button">Editar</button>
-    <button *ngIf="userId == comment.user_id" (click)="deleteComment(comment.id)" class="button btnDelete">Eliminar</button>
+
+    <mat-card>
+      <mat-card-title>Comentario:</mat-card-title>
+      <div *ngIf="userId == comment.user_id">
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button (click)="editComment(comment.id)" mat-menu-item>Editar</button>
+            <button (click)="deleteComment(comment.id)" mat-menu-item>Eliminar</button>
+        </mat-menu>
+       </div>    
+      <mat-card-content>{{ comment.content }}</mat-card-content>
+    </mat-card>
+
+    <h4></h4>
   </div>
 </div>
 <div class="progress-container" *ngIf="comments == 0">
-  <progress class="loading-progress"></progress>
+  <!-- <progress class="loading-progress"></progress> -->
+  
+<div class="ball"></div>
 </div>
