@@ -39,10 +39,6 @@ export class EditPostComponent implements OnInit {
 
   ): void {
     //Tomar la id del comentario, para implementarlo en el getComment
-    this.route.paramMap.subscribe(params => {
-      this.postId = Number(params.get('id'))
-    })
-    
     this.getPost()
   }
 
@@ -57,9 +53,9 @@ export class EditPostComponent implements OnInit {
   }
 
   editPost(){
-    this.postService.updatePost(this.postId, this.form.value.title, this.form.value.content)
+    this.postService.updatePost(this.data.id, this.form.value.title, this.form.value.content)
     .subscribe(Response => {
-      
+      location.reload()
     })
   }
 }
