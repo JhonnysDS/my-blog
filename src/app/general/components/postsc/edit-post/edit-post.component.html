@@ -1,18 +1,31 @@
 <div>
-    <h3>Editar Post </h3>
-    <div>
+    <form [formGroup]="form">
+        <h1 mat-dialog-title>Editar Post</h1>
+        <div>
 
-    </div>
+            <div class="form-group">
+
+                <div>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Titulo</mat-label>
+                        <input formControlName="title" matInput [(ngModel)]="post.title">
+                      </mat-form-field>
+    
+                </div>
+                <div>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Descripción</mat-label>
+                        <textarea formControlName="content" matInput [(ngModel)]="post.content"></textarea>
+                      </mat-form-field>
+                </div>
 
 
-    <form [formGroup]="form"  >
-        <div class="form-group">
-            <label for="title">Titulo</label>
-            <input [(ngModel)]="post.title" formControlName="title" type="text" name="title">
-            <label for="content">Descripción</label>
-            <textarea [(ngModel)]="post.content" formControlName="content" class="form-control"></textarea>
-          </div>
-          <button (click)="editPost()" class="btn btn-primary">Editar post</button>
+            </div>
+        </div>
+        <div mat-dialog-actions>
+            <button mat-button mat-dialog-close>Close</button>
+            <button  (click)="editPost()" mat-button mat-dialog-close>Editar</button>
 
+        </div>
     </form>
-</div>  
+</div>

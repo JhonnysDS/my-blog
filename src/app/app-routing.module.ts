@@ -24,10 +24,6 @@ const routes: Routes = [
     component: CreatePostComponent
   },
   {
-    path: 'edit-post/:id',
-    component: EditPostComponent
-  },
-  {
     path: 'register',
     component: RegisterComponent
   },

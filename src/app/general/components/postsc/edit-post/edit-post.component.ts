@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Post } from 'src/app/model/post.model';
 import { PostService } from 'src/app/services/post.service';
@@ -22,7 +23,9 @@ export class EditPostComponent implements OnInit {
     private formBuilder: FormBuilder,
     private postService:PostService,
     private route: ActivatedRoute,
-    private router:Router
+    private router:Router,
+
+    @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.form = this.formBuilder.group(
       {
@@ -39,14 +42,16 @@ export class EditPostComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.postId = Number(params.get('id'))
     })
-
+    
     this.getPost()
   }
 
   getPost(){
-    this.postService.getPost(this.postId)
+    this.postService.getPost(this.data.id)
     .subscribe(data =>{
       this.post = data
+      
+      
       
     })
   }
@@ -54,7 +59,7 @@ export class EditPostComponent implements OnInit {
   editPost(){
     this.postService.updatePost(this.postId, this.form.value.title, this.form.value.content)
     .subscribe(Response => {
-      this.router.navigate(['/post', this.postId])
+      
     })
   }
 }

@@ -3,6 +3,8 @@ import { Post } from 'src/app/model/post.model';
 import { PostService } from 'src/app/services/post.service';
 import { Router } from '@angular/router';
 import { CommentsService } from 'src/app/services/comments.service';
+import {MatDialog} from '@angular/material/dialog';
+import { EditPostComponent } from '../edit-post/edit-post.component';
 
 @Component({
   selector: 'app-posts',
@@ -17,7 +19,8 @@ export class PostsComponent implements OnInit {
   constructor(
     private postService: PostService,
     private commentsService: CommentsService,
-    private router: Router
+    private router: Router,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -40,9 +43,16 @@ export class PostsComponent implements OnInit {
     this.router.navigate(['/post', post.id])
   }
 
+
   editPost(id: number){
-    this.router.navigate(['edit-post', id]);
+    this.dialog.open(EditPostComponent, {
+      data: {
+        id: id
+      }
+    });
+
   }
+
   deletePost(id: number){
     if(this.confirmDelete()){
       this.postService.deletePost(id)
