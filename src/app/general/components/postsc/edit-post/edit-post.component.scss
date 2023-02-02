@@ -1,0 +1,33 @@
+.div-container{
+    width: 440px;
+    form{
+        text-align: center;
+        .form-group{
+            width: 100%;
+            .mat-form-field{
+                width: 100%;
+            }
+            .textarea{
+                height: 200px;
+            }
+        }
+    }
+}
+
+@media  screen and (max-width:624px) {
+    .div-container{
+        width: 100%;
+        form{
+            text-align: center;
+            .form-group{
+                width: 100%;
+                .mat-form-field{
+                    width: 100%;
+                }
+                .textarea{
+                    height: 200px;
+                }
+            }
+        }
+    }
+}
