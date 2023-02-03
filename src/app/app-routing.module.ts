@@ -20,21 +20,13 @@ const routes: Routes = [
     component: PostComponent
   },
   {
-    path: 'create-post',
-    component: CreatePostComponent
-  },
-  {
     path: 'register',
     component: RegisterComponent
   },
   {
     path: 'login',
     component: LoginComponent
-  },
-  {
-    path: 'comment/:id',
-    component: EditCommentsComponent
-  },
+  }
 
 ];
 

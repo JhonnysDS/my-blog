@@ -1,8 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { CommentsService } from 'src/app/services/comments.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Comment } from 'src/app/model/comment.model';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 @Component({
   selector: 'app-edit-comments',
   templateUrl: './edit-comments.component.html',
@@ -19,7 +20,9 @@ export class EditCommentsComponent implements OnInit {
     private route: ActivatedRoute,
     private commentsService:CommentsService,
     private formBuilder:FormBuilder,
-    private router:Router
+    private router:Router,
+
+    @Inject(MAT_DIALOG_DATA) public data: any
   ) { 
     this.form = this.formBuilder.group({
       content: ['']
@@ -27,17 +30,12 @@ export class EditCommentsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //Tomar la id del comentario, para implementarlo en el getComment
-    this.route.paramMap.subscribe(params => {
-      this.commentId = Number(params.get('id'))
-      
-    })
 
     this.getComment()
   }
 
   getComment(){
-    this.commentsService.getComment(this.commentId)
+    this.commentsService.getComment(this.data.id)
     .subscribe(comments => {
       if (comments && comments.length > 0){
         this.contentComment = comments[0].content
@@ -48,9 +46,9 @@ export class EditCommentsComponent implements OnInit {
 
   editComment(){
     const commentData= this.form.value;
-    this.commentsService.editComment(this.commentId, commentData)
+    this.commentsService.editComment(this.data.id, commentData)
     .subscribe(response => {
-      this.router.navigate(['/post', this.postId])
+      location.reload()
     })
   }
 

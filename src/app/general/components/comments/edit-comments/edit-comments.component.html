@@ -1,16 +1,23 @@
 <div>
-    <h3>Editar comentario id: {{commentId}} </h3>
-    <div>
-
+    <div class="div-container">
+        <form [formGroup]="form">
+            <h1 mat-dialog-title>Editar Comentario</h1>
+                <div class="form-group">
+                    <div>
+                        <mat-form-field class="mat-form-field " appearance="fill">
+                            <mat-label>Comentario</mat-label>
+                            <textarea [(ngModel)]="contentComment"  class="textarea" formControlName="content" matInput></textarea>
+                          </mat-form-field>
+                    </div>
+    
+    
+                </div>
+    
+            <div mat-dialog-actions>
+                <button color="warn" mat-button mat-dialog-close>Close</button>
+                <button color="primary" (click)="editComment()" type="submit" mat-button>Editar</button>
+    
+            </div>
+        </form>
     </div>
-    <p>{{contentComment}}</p>
-
-    <form [formGroup]="form"  >
-        <div class="form-group">
-            <label for="content">Comentario</label>
-            <textarea [(ngModel)]="contentComment"  formControlName="content" class="form-control"></textarea>
-          </div>
-          <button (click)="editComment()" [disabled]="!form.valid" class="btn btn-primary">Editar comentario</button>
-          <button (click)="getComment()">obtener</button>
-    </form>
-</div>  
+</div>

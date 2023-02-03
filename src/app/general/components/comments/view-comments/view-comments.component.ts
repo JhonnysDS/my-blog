@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, OnChanges, Output  } from '@angular/core';
 import { CommentsService } from 'src/app/services/comments.service';
 import { Router } from '@angular/router'; 
+import { MatDialog } from '@angular/material/dialog';
+import { EditCommentsComponent } from '../edit-comments/edit-comments.component';
 @Component({
   selector: 'app-view-comments',
   templateUrl: './view-comments.component.html',
@@ -12,8 +14,8 @@ export class ViewCommentsComponent implements OnInit {
   @Input() postId: number = 0;
   constructor(
     private commentsService:CommentsService,
-    private router:Router
-
+    private router:Router,
+    private dialog: MatDialog,
   ) {
 
    }
@@ -51,9 +53,14 @@ export class ViewCommentsComponent implements OnInit {
     }
   }
 
-  editComment(id: number) {
-    this.router.navigate(['comment', id]);
-     
+
+  editComment(id: number){
+    this.dialog.open(EditCommentsComponent, {
+      data: {
+        id: id
+      }
+    });
+
   }
 
 }
