@@ -3,6 +3,7 @@ import { CommentsService } from 'src/app/services/comments.service';
 import { Router } from '@angular/router'; 
 import { MatDialog } from '@angular/material/dialog';
 import { EditCommentsComponent } from '../edit-comments/edit-comments.component';
+import { DeleteCommentComponent } from '../delete-comment/delete-comment.component';
 @Component({
   selector: 'app-view-comments',
   templateUrl: './view-comments.component.html',
@@ -43,15 +44,24 @@ export class ViewCommentsComponent implements OnInit {
   confirmDelete(): boolean {
     return confirm("¿Estás seguro de que quieres eliminer este comentario?")
   }
-  deleteComment(id: number){
-    if(this.confirmDelete()){
-      this.commentsService.deleteComment(id)
-      .subscribe(response => {
-        location.reload();
-        this.getComments()
-      })
-    }
+  // deleteComment(id: number){
+  //   if(this.confirmDelete()){
+  //     this.commentsService.deleteComment(id)
+  //     .subscribe(response => {
+  //       location.reload();
+  //     })
+  //   }
+  // }
+
+
+  deleteComment(id: number) {
+    this.dialog.open(DeleteCommentComponent, {
+      data: {
+        id: id,
+      }
+    })
   }
+
 
 
   editComment(id: number){

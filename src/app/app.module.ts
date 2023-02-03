@@ -17,6 +17,7 @@ import { EditPostComponent } from './general/components/postsc/edit-post/edit-po
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
+import { DeleteCommentComponent } from './general/components/comments/delete-comment/delete-comment.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +31,7 @@ import { MaterialModule } from './material/material.module';
     EditCommentsComponent,
     EditPostComponent,
     SidenavComponent,
+    DeleteCommentComponent,
     
   ],
   imports: [
