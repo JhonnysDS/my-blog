@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { CommentsService } from 'src/app/services/comments.service';
 import {MatDialog} from '@angular/material/dialog';
 import { EditPostComponent } from '../edit-post/edit-post.component';
+import { CreatePostComponent } from '../create-post/create-post.component';
 
 @Component({
   selector: 'app-posts',
@@ -36,6 +37,10 @@ export class PostsComponent implements OnInit {
     this.showMenu = !this.showMenu;
   }
 
+  createPost(){
+    this.dialog.open(CreatePostComponent);
+  }
+
   viewPost(post: Post) {
     this.commentsService.getCommentsById(post.id).subscribe(data => {
       this.comments = data;
@@ -64,13 +69,6 @@ export class PostsComponent implements OnInit {
 
   confirmDelete(): boolean {
     return confirm("¿Estás seguro de que quieres eliminer este comentario?")
-  }
-
-  logout() {
-    localStorage.removeItem('token');
-    localStorage.removeItem('userId');
-    this.router.navigate(['/login']);
-
   }
   
 }

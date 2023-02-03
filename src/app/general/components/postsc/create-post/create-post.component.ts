@@ -24,9 +24,8 @@ export class CreatePostComponent implements OnInit {
 
   onSubmit(form: any){
     this.postService.createPost(form)
-
       .subscribe(data => {
-      this.router.navigate(['/posts']);
+        location.reload()
     })
   }
 
