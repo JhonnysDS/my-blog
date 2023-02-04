@@ -23,11 +23,10 @@ export class ViewCommentsComponent implements OnInit {
 
   ) {
 
+    //Alerta para mostrar el mensaje de success
     const commentEdited = localStorage.getItem('commentEdited');
     console.log(commentEdited);
-    
     if (commentEdited) {
-      console.log('Comment edited:', JSON.parse(commentEdited));
       this.startShowMessages();
       localStorage.removeItem('commentEdited');
     }
