@@ -1,10 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Comment } from '../model/comment.model';
+import { Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class CommentsService {
+
+  public commentEdited = new Subject<any>();
+
 
   constructor(  
     private http: HttpClient

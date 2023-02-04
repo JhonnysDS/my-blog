@@ -15,7 +15,7 @@
     
             <div mat-dialog-actions>
                 <button color="warn" mat-button mat-dialog-close>Close</button>
-                <button color="primary" (click)="editComment()" type="submit" mat-button>Editar</button>
+                <button color="primary" (click)="editComment()" type="submit" [mat-dialog-close]="true" mat-button>Editar</button>
     
             </div>
         </form>

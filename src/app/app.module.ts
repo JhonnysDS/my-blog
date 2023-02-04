@@ -18,6 +18,13 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { DeleteCommentComponent } from './general/components/comments/delete-comment/delete-comment.component';
+import { NZ_I18N } from 'ng-zorro-antd/i18n';
+import { es_ES } from 'ng-zorro-antd/i18n';
+import { registerLocaleData } from '@angular/common';
+import es from '@angular/common/locales/es';
+import { NzMessageModule } from 'ng-zorro-antd/message';
+
+registerLocaleData(es);
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,10 +48,11 @@ import { DeleteCommentComponent } from './general/components/comments/delete-com
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    NzMessageModule
 
   ],
-  providers: [ { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },],
+  providers: [ { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }, { provide: NZ_I18N, useValue: es_ES },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

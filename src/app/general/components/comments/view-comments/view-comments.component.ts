@@ -1,9 +1,12 @@
-import { Component, OnInit, Input, OnChanges, Output  } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CommentsService } from 'src/app/services/comments.service';
-import { Router } from '@angular/router'; 
+
 import { MatDialog } from '@angular/material/dialog';
 import { EditCommentsComponent } from '../edit-comments/edit-comments.component';
 import { DeleteCommentComponent } from '../delete-comment/delete-comment.component';
+import { NzMessageService } from 'ng-zorro-antd/message';
+
+
 @Component({
   selector: 'app-view-comments',
   templateUrl: './view-comments.component.html',
@@ -15,19 +18,29 @@ export class ViewCommentsComponent implements OnInit {
   @Input() postId: number = 0;
   constructor(
     private commentsService:CommentsService,
-    private router:Router,
     private dialog: MatDialog,
+    private message: NzMessageService,
+
   ) {
+
+    const commentEdited = localStorage.getItem('commentEdited');
+    console.log(commentEdited);
+    
+    if (commentEdited) {
+      console.log('Comment edited:', JSON.parse(commentEdited));
+      this.startShowMessages();
+      localStorage.removeItem('commentEdited');
+    }
 
    }
 
   ngOnInit(): void {
     this.userId = Number(localStorage.getItem("userId"));
 
-
-    this.getComments()
+    this.getComments();
 
   }
+
 
 
   getComments(){
@@ -71,6 +84,11 @@ export class ViewCommentsComponent implements OnInit {
       }
     });
 
+  }
+
+  startShowMessages(): void {
+    this.message
+      .success('Editado con exito!', { nzDuration: 2500 })
   }
 
 }
