@@ -4,14 +4,13 @@ section{
   justify-content: center; /* centra los elementos en el eje horizontal */
     align-items: center; /* centra los elementos en el eje vertical */
   .div-container{
-    max-width: 400px;
-    margin: 20px;
-    height: 300px;
-
+    width: auto;
+    margin: 0px;
+    height: auto;
+    background-color: red;
     .example-card {  
       height: auto;
-      margin: 5px;
-      width: 400px;
+      min-height: 250px;
       background-color: rgb(247, 247, 247);
       .mat-card-header{
         font-size: 25px;
@@ -48,14 +47,10 @@ section{
   bottom: 25px;
 }
 
-@media (max-width: 1857px) {
+@media (max-width: 1800px) {
   section{
     grid-template-columns: repeat(3, 1fr);
   }
-}
-
-@media (max-width: 932px) {
- 
 }
 
 
@@ -67,9 +62,7 @@ section{
       
       .example-card {  
         margin: 0px;
-
-
-        height: 90%;
+        margin: 10px;
         .mat-card-header{
           font-size: 20px;
         }
@@ -105,6 +98,7 @@ section{
         height: auto;
         padding-bottom: 40px;
         min-height: 250px;
+        margin: 0px;
       }
     }
   }
