@@ -17,7 +17,7 @@
     height: 100%;;
     // align-items: center;
     // justify-content: center;
-
+    // background-color: #d2d2d2;
     .div-navbar{
         background-color: $color1;
         width: 100%;
@@ -140,6 +140,7 @@
         z-index: 0;
         margin: 25px;
         touch-action: pan-y;
+        
     }
   }
   

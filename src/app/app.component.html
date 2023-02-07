@@ -1,1 +1,11 @@
+<!-- <ng-container *ngIf="isLoggedIn; then loggedIn else notLoggedIn"></ng-container>
+
+<ng-template #loggedIn>
 <app-sidenav></app-sidenav>
+</ng-template>
+
+<ng-template #notLoggedIn>
+    <app-login></app-login>
+</ng-template> -->
+
+<ng-container *ngComponentOutlet="componentToShow"></ng-container>

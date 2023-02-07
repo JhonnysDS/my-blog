@@ -1,9 +1,9 @@
 .div-container-overall{
-
     display: flex   ;
     justify-content: center;
     align-items: center;
-    height: 500px;
+    height: 100%;
+    background-color: #d2d2d2;
     .div-container-son{
         background-color: #272727;
         height: 400px;
@@ -13,6 +13,7 @@
         align-items: center;
         box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
         border-radius: 15px;
+        margin: 10px;
 
         .form-control {
             position: relative;

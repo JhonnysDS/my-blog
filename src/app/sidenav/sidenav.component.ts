@@ -21,7 +21,7 @@ export class SidenavComponent {
   logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('userId');
-    this.router.navigate(['/login']);
+    location.reload()
   }
 
 }
