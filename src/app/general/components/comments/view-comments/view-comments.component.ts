@@ -31,6 +31,13 @@ export class ViewCommentsComponent implements OnInit {
       localStorage.removeItem('commentEdited');
     }
 
+    const commentDeleted = localStorage.getItem('commentDeleted');
+    console.log(commentDeleted);
+    if (commentDeleted) {
+      this.startShowMessagesDeleted();
+      localStorage.removeItem('commentDeleted');
+    }
+
    }
 
   ngOnInit(): void {
@@ -87,7 +94,12 @@ export class ViewCommentsComponent implements OnInit {
 
   startShowMessages(): void {
     this.message
-      .success('Editado con exito!', { nzDuration: 2500 })
+      .success('Comentario editado con exito!', { nzDuration: 2500 })
+  }
+
+  startShowMessagesDeleted(): void {
+    this.message
+      .success('El comentario fue eliminado', { nzDuration: 2500 })
   }
 
 }
