@@ -25,7 +25,7 @@ export class DeleteCommentComponent implements OnInit {
   deleteComment(){
     this.commentsService.deleteComment(this.data.id)
     .subscribe(response => {
-      localStorage.setItem('commentDeleted', JSON.stringify(response));
+      localStorage.setItem('commentDeleted', 'success');
       
       location.reload()
     })

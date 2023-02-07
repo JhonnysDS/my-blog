@@ -48,6 +48,13 @@ export class ViewCommentsComponent implements OnInit {
 
     this.getComments();
 
+            //Funcion para mostrar el loading del mensahe al crear el post.
+            this.commentsService.data$.subscribe(data => {
+              if('success'){
+                this.messageCommentLoading()
+              }
+            });
+
   }
 
 
@@ -94,6 +101,15 @@ export class ViewCommentsComponent implements OnInit {
     });
 
   }
+
+  messageCommentLoading(): void {
+    const id = this.message.loading('Cargando..', { nzDuration: 0 }).messageId;
+    setTimeout(() => {
+      this.message.remove(id);
+    }, 2500);
+  }
+
+
 
   messageCommentEdited(): void {
     this.message

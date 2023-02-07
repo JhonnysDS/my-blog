@@ -35,5 +35,12 @@ export class CommentsService {
     return this.http.delete<Comment[]>(`http://127.0.0.1:5000/comments/${id}`)
   }
 
+    //servicio para enviar la data de crear para loaging de mensaje
+    private dataSource = new Subject<any>();
+    data$ = this.dataSource.asObservable();
+  
+    sendData(data: any) {
+      this.dataSource.next(data);
+    }
 
 }
