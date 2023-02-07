@@ -9,7 +9,7 @@ section{
     height: 300px;
 
     .example-card {  
-      height: 80%;
+      height: auto;
       margin: 5px;
       width: 400px;
       background-color: rgb(247, 247, 247);
@@ -54,6 +54,10 @@ section{
   }
 }
 
+@media (max-width: 932px) {
+ 
+}
+
 
 
 @media screen and (max-width: 1387px) {
@@ -88,8 +92,20 @@ section{
 
 }
 
-@media (max-width: 738px) {
+@media (max-width: 856px) {
   section{
     grid-template-columns: repeat(1, 1fr);
+    .div-container{
+      width: 100%;
+      margin: 0px;
+      margin-bottom: 10px;
+      height: auto;
+      .example-card{
+        width: 100%;
+        height: auto;
+        padding-bottom: 40px;
+        min-height: 250px;
+      }
+    }
   }
 }

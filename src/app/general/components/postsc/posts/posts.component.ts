@@ -70,7 +70,7 @@ export class PostsComponent implements OnInit {
         });
   }
 
-  limitText(text: string, limit: number = 240): string {
+  limitText(text: string, limit: number = 200): string {
     return text.length > limit ? `${text.substring(0, limit)}...` : text;
   }
 
