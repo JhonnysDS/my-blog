@@ -52,6 +52,7 @@ export class EditCommentsComponent implements OnInit {
     const commentData= this.form.value;
     this.commentsService.editComment(this.data.id, commentData)
     .subscribe(response => {
+      this.commentsService.sendData('success')
       localStorage.setItem('commentEdited', JSON.stringify(response));
       location.reload()
     })
