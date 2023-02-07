@@ -23,20 +23,23 @@ export class ViewCommentsComponent implements OnInit {
 
   ) {
 
-    //Alerta para mostrar el mensaje de success
-    const commentEdited = localStorage.getItem('commentEdited');
-    console.log(commentEdited);
-    if (commentEdited) {
-      this.startShowMessages();
+    
+    //Alertas de succes al editar y eliminar comentario
+    const commentData = {
+      edited: localStorage.getItem('commentEdited'),
+      deleted: localStorage.getItem('commentDeleted')
+    };
+    
+    if (commentData.edited) {
+      this.messageCommentEdited();
       localStorage.removeItem('commentEdited');
     }
-
-    const commentDeleted = localStorage.getItem('commentDeleted');
-    console.log(commentDeleted);
-    if (commentDeleted) {
-      this.startShowMessagesDeleted();
+    
+    if (commentData.deleted) {
+      this.messageCommentDeleted();
       localStorage.removeItem('commentDeleted');
     }
+    //----------------------------------------------------------//
 
    }
 
@@ -92,12 +95,12 @@ export class ViewCommentsComponent implements OnInit {
 
   }
 
-  startShowMessages(): void {
+  messageCommentEdited(): void {
     this.message
       .success('Comentario editado con exito!', { nzDuration: 2500 })
   }
 
-  startShowMessagesDeleted(): void {
+  messageCommentDeleted(): void {
     this.message
       .success('El comentario fue eliminado', { nzDuration: 2500 })
   }

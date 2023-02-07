@@ -54,24 +54,12 @@ section{
   }
 }
 
-@media (max-width: 932px) {
-  section{
-
-    .div-container{
-      .example-card{
-        width: 300px;
-      }
-    }
-  }
-}
-
 
 
 @media screen and (max-width: 1387px) {
   section{
     grid-template-columns: repeat(2, 1fr);
     .div-container{
-      height: 350px;
       
       .example-card {  
         margin: 0px;

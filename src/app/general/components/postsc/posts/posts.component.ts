@@ -6,23 +6,51 @@ import { CommentsService } from 'src/app/services/comments.service';
 import {MatDialog} from '@angular/material/dialog';
 import { EditPostComponent } from '../edit-post/edit-post.component';
 import { CreatePostComponent } from '../create-post/create-post.component';
+import { NzMessageService } from 'ng-zorro-antd/message';
+
+
+
 
 @Component({
   selector: 'app-posts',
   templateUrl: './posts.component.html',
   styleUrls: ['./posts.component.scss']
 })
+
 export class PostsComponent implements OnInit {
   posts: Post[] = [];
   comments: any  = [];
   userId: number = 0;
   showMenu = false
+
+
+
+
   constructor(
     private postService: PostService,
     private commentsService: CommentsService,
     private router: Router,
-    private dialog: MatDialog
-  ) { }
+    private dialog: MatDialog,
+    private message: NzMessageService,
+
+  ) {
+
+
+    const postsData = {
+      created: localStorage.getItem('postCreated'),
+      deleted: localStorage.getItem('commentDeleted')
+    };
+    
+    if (postsData.created) {
+      this.messagePostCreated();
+      localStorage.removeItem('postCreated');
+    }
+    
+    // if (postsData.deleted) {
+    //   this.startShowMessagesDeleted();
+    //   localStorage.removeItem('commentDeleted');
+    // }
+   }
 
   ngOnInit(): void {
     this.postService.getAllPost()
@@ -33,8 +61,8 @@ export class PostsComponent implements OnInit {
         this.userId = Number(localStorage.getItem("userId"));
   }
 
-  toggleMenu() {
-    this.showMenu = !this.showMenu;
+  limitText(text: string, limit: number = 240): string {
+    return text.length > limit ? `${text.substring(0, limit)}...` : text;
   }
 
   createPost(){
@@ -69,6 +97,12 @@ export class PostsComponent implements OnInit {
 
   confirmDelete(): boolean {
     return confirm("¿Estás seguro de que quieres eliminer este comentario?")
+  }
+
+
+  messagePostCreated(): void {
+    this.message
+      .success('Post creado con exito!', { nzDuration: 2500 })
   }
   
 }
