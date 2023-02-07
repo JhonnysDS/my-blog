@@ -39,12 +39,18 @@ export class PostsComponent implements OnInit {
 
     const postsData = {
       created: localStorage.getItem('postCreated'),
+      edited: localStorage.getItem('postEdited'),
       deleted: localStorage.getItem('postDeleted')
     };
     
     if (postsData.created) {
       this.messagePostCreated();
       localStorage.removeItem('postCreated');
+    }
+
+    if (postsData.edited) {
+      this.messagePostEdited();
+      localStorage.removeItem('postEdited');
     }
     
     if (postsData.deleted) {
@@ -106,7 +112,7 @@ export class PostsComponent implements OnInit {
   }
 
   messagePostLoading(): void {
-    const id = this.message.loading('creando..', { nzDuration: 0 }).messageId;
+    const id = this.message.loading('Cargando..', { nzDuration: 0 }).messageId;
     setTimeout(() => {
       this.message.remove(id);
     }, 2500);
@@ -118,8 +124,14 @@ export class PostsComponent implements OnInit {
       .success('Post creado con exito!', { nzDuration: 2500 })
   }
   
+  messagePostEdited(): void {
+    this.message
+      .success('Post Editado con exito!', { nzDuration: 2500 })
+  }
+
   messagePostDeleted(): void {
     this.message
       .success('Post eliminado con exito!', { nzDuration: 2500 })
   }
+
 }

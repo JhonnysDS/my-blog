@@ -55,6 +55,9 @@ export class EditPostComponent implements OnInit {
   editPost(){
     this.postService.updatePost(this.data.id, this.form.value.title, this.form.value.content)
     .subscribe(Response => {
+      this.postService.sendData('sucess')
+      localStorage.setItem('postEdited', 'success');
+
       location.reload()
     })
   }

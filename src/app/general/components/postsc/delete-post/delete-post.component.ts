@@ -26,6 +26,7 @@ export class DeletePostComponent implements OnInit {
     this.postService.deletePost(this.data.id)
     .subscribe(response => {
       localStorage.setItem('postDeleted', 'success');
+      this.postService.sendData('sucess')
       location.reload()
     })
   }
