@@ -26,6 +26,7 @@ export class CreatePostComponent implements OnInit {
     this.postService.createPost(form)
       .subscribe(data => {
       localStorage.setItem('postCreated', 'Success');
+      this.postService.sendData('sucess')
         location.reload()
     })
   }

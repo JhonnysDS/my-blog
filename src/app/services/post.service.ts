@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Post } from '../model/post.model';
-
+import { Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -31,6 +31,15 @@ export class PostService {
 
   deletePost(id: number){
     return this.http.delete<Post[]>(`http://127.0.0.1:5000/posts/${id}`)
+  }
+
+
+  //servicio para enviar la data de crear para loaging de mensaje
+  private dataSource = new Subject<any>();
+  data$ = this.dataSource.asObservable();
+
+  sendData(data: any) {
+    this.dataSource.next(data);
   }
   
 }

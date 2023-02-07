@@ -60,11 +60,21 @@ export class PostsComponent implements OnInit {
 
 
         this.userId = Number(localStorage.getItem("userId"));
+
+
+        //Funcion para mostrar el loading del mensahe al crear el post.
+        this.postService.data$.subscribe(data => {
+          if('success'){
+            this.messagePostLoading()
+          }
+        });
   }
 
   limitText(text: string, limit: number = 240): string {
     return text.length > limit ? `${text.substring(0, limit)}...` : text;
   }
+
+
 
   createPost(){
     this.dialog.open(CreatePostComponent);
@@ -93,6 +103,13 @@ export class PostsComponent implements OnInit {
         id: id,
       }
     })
+  }
+
+  messagePostLoading(): void {
+    const id = this.message.loading('creando..', { nzDuration: 0 }).messageId;
+    setTimeout(() => {
+      this.message.remove(id);
+    }, 2500);
   }
 
 
