@@ -7,6 +7,7 @@ import {MatDialog} from '@angular/material/dialog';
 import { EditPostComponent } from '../edit-post/edit-post.component';
 import { CreatePostComponent } from '../create-post/create-post.component';
 import { NzMessageService } from 'ng-zorro-antd/message';
+import { DeletePostComponent } from '../delete-post/delete-post.component';
 
 
 
@@ -38,7 +39,7 @@ export class PostsComponent implements OnInit {
 
     const postsData = {
       created: localStorage.getItem('postCreated'),
-      deleted: localStorage.getItem('commentDeleted')
+      deleted: localStorage.getItem('postDeleted')
     };
     
     if (postsData.created) {
@@ -46,10 +47,10 @@ export class PostsComponent implements OnInit {
       localStorage.removeItem('postCreated');
     }
     
-    // if (postsData.deleted) {
-    //   this.startShowMessagesDeleted();
-    //   localStorage.removeItem('commentDeleted');
-    // }
+    if (postsData.deleted) {
+      this.messagePostDeleted();
+      localStorage.removeItem('postDeleted');
+    }
    }
 
   ngOnInit(): void {
@@ -86,17 +87,12 @@ export class PostsComponent implements OnInit {
 
   }
 
-  deletePost(id: number){
-    if(this.confirmDelete()){
-      this.postService.deletePost(id)
-      .subscribe(response => {
-        location.reload()
-      })
-    }
-  }
-
-  confirmDelete(): boolean {
-    return confirm("¿Estás seguro de que quieres eliminer este comentario?")
+  deletePost(id: number) {
+    this.dialog.open(DeletePostComponent, {
+      data: {
+        id: id,
+      }
+    })
   }
 
 
@@ -105,4 +101,8 @@ export class PostsComponent implements OnInit {
       .success('Post creado con exito!', { nzDuration: 2500 })
   }
   
+  messagePostDeleted(): void {
+    this.message
+      .success('Post eliminado con exito!', { nzDuration: 2500 })
+  }
 }

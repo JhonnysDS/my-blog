@@ -23,6 +23,7 @@ import { es_ES } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import es from '@angular/common/locales/es';
 import { NzMessageModule } from 'ng-zorro-antd/message';
+import { DeletePostComponent } from './general/components/postsc/delete-post/delete-post.component';
 
 registerLocaleData(es);
 @NgModule({
@@ -39,6 +40,7 @@ registerLocaleData(es);
     EditPostComponent,
     SidenavComponent,
     DeleteCommentComponent,
+    DeletePostComponent,
     
   ],
   imports: [
