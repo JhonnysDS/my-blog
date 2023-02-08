@@ -1,7 +1,161 @@
-div{
-    form{
-        div{
-            margin: 10px;
+@import"../../../../../assets/composcss/components";
+
+
+
+
+.container-overall {
+    font-family: mst-light;
+    background-color: #2E2E2E;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+
+    .login-container {
+        height: auto;
+        width: auto;
+        display: flex;
+        justify-content: space-between;
+        border-radius: 25px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+
+        .div-login-info-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 25px 0px 0px 25px;
+        }
+
+        .div-login-info-container-son {
+            margin: 25px;
+            width: 400px;
+            height: 43.65em;
+            margin: 35px;
+            display: flex;
+            align-items: center;
+
+            .div-form {
+                text-align: center;
+
+                .title {
+                    font: 30px mst-bold;
+                }
+
+                .form-field {
+                    width: 80%;
+                    margin: 5px;
+                }
+
+                p {
+                    margin: 25px;
+
+                    a {
+                        color: blue;
+                    }
+                }
+            }
+        }
+
+        img {
+            margin: 35px;
+            width: 450px;
         }
     }
+
+    .filter {
+        -webkit-backdrop-filter: blur(15px);
+        backdrop-filter: blur(15px);
+        background-color: rgba(245, 245, 245, 0.2);
+    }
 }
+
+@media screen and (max-width: 1366px) {
+
+    .container-overall {
+
+
+
+        .login-container {
+            height: 43.65em;
+
+            .div-login-info-container-son {
+
+                .div-form {
+
+                    .title {
+                        font: 25px mst-bold;
+                        margin-top: 20px;
+                    }
+
+                    .form-field {
+                        margin: 2px;
+                    }
+
+                    p {
+                        margin: 15px;
+
+                    }
+                }
+            }
+
+            img {
+                margin: 20px;
+                width: 400px;
+            }
+        }
+    }
+
+}
+
+@media screen and (max-width: 996px) {
+
+    .container-overall {
+
+        .login-container {
+            height: auto;
+            width: auto;
+            margin: 0px 25px;
+
+            .div-login-info-container {
+                border-radius: 25px;
+            }
+
+            .div-login-info-container-son {
+                margin: 0px;
+                width: 100%;
+                height: 43.65em;
+                margin: 35px;
+                display: flex;
+                align-items: center;
+
+                .div-form {
+                    text-align: center;
+
+                    .title {
+                        font: 30px mst-bold;
+                    }
+
+                    .form-field {
+                        width: 80%;
+                        margin: 2px;
+                    }
+
+                    p {
+                        margin: 25px;
+
+                    }
+                }
+            }
+
+            img {
+                display: none;
+                width: 300px;
+            }
+        }
+    }
+
+
+}
+

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from 'src/app/model/post.model';
 import { PostService } from 'src/app/services/post.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CommentsService } from 'src/app/services/comments.service';
 import {MatDialog} from '@angular/material/dialog';
 import { EditPostComponent } from '../edit-post/edit-post.component';
@@ -22,7 +22,8 @@ export class PostsComponent implements OnInit {
   posts: Post[] = [];
   comments: any  = [];
   userId: number = 0;
-  showMenu = false
+  showMenu = false;
+  value: any= '';
 
 
 
@@ -33,6 +34,7 @@ export class PostsComponent implements OnInit {
     private router: Router,
     private dialog: MatDialog,
     private message: NzMessageService,
+    private route: ActivatedRoute
 
   ) {
 
@@ -62,6 +64,9 @@ export class PostsComponent implements OnInit {
       this.messageUserLoggedIn();
       localStorage.removeItem('userLoggedIn');
     }
+
+
+
    }
 
   ngOnInit(): void {
@@ -79,7 +84,17 @@ export class PostsComponent implements OnInit {
             this.messagePostLoading()
           }
         });
-  }
+
+
+        //prueba
+        
+        this.route.paramMap.subscribe(params => {
+          console.log(params);
+        });
+ 
+      }
+        
+
 
   limitText(text: string, limit: number = 200): string {
     return text.length > limit ? `${text.substring(0, limit)}...` : text;

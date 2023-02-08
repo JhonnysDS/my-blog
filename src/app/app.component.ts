@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { LoginComponent } from './general/components/auth/login/login.component';
+import { RegisterComponent } from './general/components/auth/register/register.component';
 import { PostsComponent } from './general/components/postsc/posts/posts.component';
 import { AuthService } from './services/auth.service';
 import { SidenavComponent } from './sidenav/sidenav.component';
-
+import { map } from 'rxjs/operators';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -14,13 +16,29 @@ export class AppComponent {
   componentToShow: any;
 
   constructor(
-    private authService: AuthService
-  ){
+    private authService: AuthService,
+    private route: ActivatedRoute
+  ) {
     this.isLoggedIn = this.authService.isLoggedIn();
-    this.componentToShow = this.isLoggedIn ? SidenavComponent : LoginComponent;
+    if (!this.isLoggedIn) {
+      this.route.url.pipe(
+        map(urlSegments => urlSegments.map(segment => segment.path).join('/'))
+      ).subscribe(url => {
+        if (url === '/register') {
+          this.componentToShow = RegisterComponent;
+        } else {
+          this.componentToShow = LoginComponent;
+        }
+      });
+    } else {
+      this.componentToShow = SidenavComponent;
+    }
   }
-
-
-
 }
-  
+
+
+
+
+
+
+

@@ -17,7 +17,7 @@ const routes: Routes = [
   {
     path: 'post/:id', 
     component: PostComponent,
-    canActivate: [AuthGuardGuard]
+    // canActivate: [AuthGuardGuard]
   },
   {
     path: 'register',
