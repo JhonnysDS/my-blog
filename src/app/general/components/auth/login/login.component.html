@@ -1,33 +1,35 @@
-<div class="div-container-overall">
-    <div class="div-container-son">
-        <form [formGroup]="form" (ngSubmit)="onSubmitForm()">
-            <div class="form-control">
-                <input formControlName="username" type="value" required="">
-                <label>
-                    <span style="transition-delay:0ms">U</span><span style="transition-delay:50ms">s</span><span
-                        style="transition-delay:100ms">u</span><span style="transition-delay:150ms">a</span><span
-                        style="transition-delay:200ms">r</span><span style="transition-delay:250ms">i</span><span
-                        style="transition-delay:300ms">o</span>
-                </label>
-            </div>
 
-            <div class="form-control">
-                <input formControlName="password" type="password" required="">
-                <label>
-                    <span style="transition-delay:0ms">C</span><span style="transition-delay:50ms">o</span><span
-                        style="transition-delay:100ms">n</span><span style="transition-delay:150ms">t</span><span
-                        style="transition-delay:200ms">r</span><span style="transition-delay:250ms">a</span><span
-                        style="transition-delay:300ms">s</span><span style="transition-delay:350ms">e</span><span
-                        style="transition-delay:400ms">ñ</span><span style="transition-delay:450ms">a</span>
-                </label>
+<section class="container-overall">
+    <div class="login-container filter">
+        <div class="div-login-info-container filter">
+            <div class="div-login-info-container-son">
+               <div class="div-form">
+                <h1 class="title">Iniciar sesión</h1>
+                <form [formGroup]="form" (ngSubmit)="onSubmitForm()" class="inputs-container">
+                    <mat-form-field class="form-field" appearance="outline">
+                        <mat-label>Nombre de usuario</mat-label>
+                        <input autocomplete="off" formControlName="username" type="text" matInput placeholder="Ingrese su nombre usuario">
+                    </mat-form-field>
+                    <mat-form-field class="form-field" appearance="outline">
+                        <mat-label>contraseña</mat-label>
+                        <input type="password" formControlName="password" matInput placeholder="Ingrese su contraseña">
+                    </mat-form-field>
+                    <nz-alert [ngClass]="{'show': showAlert}" nzType="error" nzMessage="Usuario o contreseña incorrecto" class="alert"></nz-alert>
+        
+                    <p>¿haz olvidado tu contraseña? <a href="">Click aquí</a> </p>
+        
+                    <button mat-raised-button type="submit" color="primary">Iniciar sesión</button>
+        
+                    <p>¿No tienes una cuenta? <a href="#">Registrarse</a> </p>
+        
+                </form>
+               </div>
+            
             </div>
-            <div class="div-button">
-                <button type="submit">
-                    Ingresar
-                  </button>
-            </div>
+            
+        </div>
 
-        </form>
+            <img src="../../../assets/images/general/ages.svg" alt="Imagen de iniciar sesión">
+        
     </div>
-
-</div>
+</section>

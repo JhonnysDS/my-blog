@@ -40,7 +40,8 @@ export class PostsComponent implements OnInit {
     const postsData = {
       created: localStorage.getItem('postCreated'),
       edited: localStorage.getItem('postEdited'),
-      deleted: localStorage.getItem('postDeleted')
+      deleted: localStorage.getItem('postDeleted'),
+      loggedIn:localStorage.getItem('userLoggedIn')
     };
     
     if (postsData.created) {
@@ -56,6 +57,10 @@ export class PostsComponent implements OnInit {
     if (postsData.deleted) {
       this.messagePostDeleted();
       localStorage.removeItem('postDeleted');
+    }
+    if (postsData.loggedIn) {
+      this.messageUserLoggedIn();
+      localStorage.removeItem('userLoggedIn');
     }
    }
 
@@ -132,6 +137,10 @@ export class PostsComponent implements OnInit {
   messagePostDeleted(): void {
     this.message
       .success('Post eliminado con exito!', { nzDuration: 2500 })
+  }
+  messageUserLoggedIn(): void {
+    this.message
+      .success('¡Sesión iniciada con éxito!', { nzDuration: 2500 })
   }
 
 }

@@ -12,43 +12,51 @@ import { NzMessageService } from 'ng-zorro-antd/message';
 })
 export class LoginComponent implements OnInit {
   form: FormGroup;
-  
+  showAlert: boolean = false;
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
     private router: Router,
-    private message:NzMessageService
+    private message: NzMessageService
   ) {
     this.form = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
     })
-   }
+  }
 
-   onSubmitForm() {
+  onSubmitForm() {
     this.authService.loginUser(this.form.value.username, this.form.value.password)
       .subscribe((res) => {
-          if (res.message === 'Invalid username or password') {
-            this.messageLoginFailed()
-          } else {
-            localStorage.setItem('token', res.token);
-            localStorage.setItem('userId', res.user_id);
-            this.router.navigate(["/posts/"]);
-            setTimeout(() => {
-              location.reload();
-            }, 500);
-          }
+        if (res.message === 'Invalid username or password') {
+          this.messageLoginFailed()
+        } else {
+          localStorage.setItem('token', res.token);
+          localStorage.setItem('userId', res.user_id);
+          this.router.navigate(["/posts/"]);
+          this.loadingLogin()
+          localStorage.setItem('userLoggedIn', 'success');
+          setTimeout(() => {
+            location.reload();
+          }, 500);
         }
+      }
       );
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
+
 
   messageLoginFailed(): void {
-    this.message
-      .error('Usuario o contraseña incorrecto', { nzDuration: 2500 })
+    this.showAlert = true;
+    setTimeout(() => {
+      this.showAlert = false
+    }, 3000)
   }
 
+  loadingLogin(): void {
+    this.message
+      .loading('Cargando...', { nzDuration: 2500 })
+  }
 }
 
