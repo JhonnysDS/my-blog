@@ -47,6 +47,13 @@
                     width: 80%;
                     margin: 5px;
                 }
+                .alert{
+                    display: none;
+                    margin-bottom: 10px;
+                  }
+                  .show{
+                    display: block;
+                  }
 
                 p {
                     margin: 25px;

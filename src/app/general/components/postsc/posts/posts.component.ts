@@ -3,12 +3,11 @@ import { Post } from 'src/app/model/post.model';
 import { PostService } from 'src/app/services/post.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommentsService } from 'src/app/services/comments.service';
-import {MatDialog} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { EditPostComponent } from '../edit-post/edit-post.component';
 import { CreatePostComponent } from '../create-post/create-post.component';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { DeletePostComponent } from '../delete-post/delete-post.component';
-
 
 
 
@@ -20,11 +19,10 @@ import { DeletePostComponent } from '../delete-post/delete-post.component';
 
 export class PostsComponent implements OnInit {
   posts: Post[] = [];
-  comments: any  = [];
-  userId: number = 0;
+  comments: any = [];
+  userId: number=0;
   showMenu = false;
-  value: any= '';
-
+  value: any = '';
 
 
 
@@ -43,9 +41,9 @@ export class PostsComponent implements OnInit {
       created: localStorage.getItem('postCreated'),
       edited: localStorage.getItem('postEdited'),
       deleted: localStorage.getItem('postDeleted'),
-      loggedIn:localStorage.getItem('userLoggedIn')
+      loggedIn: localStorage.getItem('userLoggedIn')
     };
-    
+
     if (postsData.created) {
       this.messagePostCreated();
       localStorage.removeItem('postCreated');
@@ -55,7 +53,7 @@ export class PostsComponent implements OnInit {
       this.messagePostEdited();
       localStorage.removeItem('postEdited');
     }
-    
+
     if (postsData.deleted) {
       this.messagePostDeleted();
       localStorage.removeItem('postDeleted');
@@ -67,7 +65,7 @@ export class PostsComponent implements OnInit {
 
 
 
-   }
+  }
 
   ngOnInit(): void {
     this.postService.getAllPost()
@@ -75,25 +73,19 @@ export class PostsComponent implements OnInit {
         this.posts = data)
 
 
-        this.userId = Number(localStorage.getItem("userId"));
+    this.userId = Number(localStorage.getItem("userId"));
 
 
-        //Funcion para mostrar el loading del mensahe al crear el post.
-        this.postService.data$.subscribe(data => {
-          if('success'){
-            this.messagePostLoading()
-          }
-        });
-
-
-        //prueba
-        
-        this.route.paramMap.subscribe(params => {
-          console.log(params);
-        });
- 
+    //Funcion para mostrar el loading del mensahe al crear el post.
+    this.postService.data$.subscribe(data => {
+      if ('success') {
+        this.messagePostLoading()
       }
-        
+    });
+
+
+  }
+
 
 
   limitText(text: string, limit: number = 200): string {
@@ -102,7 +94,7 @@ export class PostsComponent implements OnInit {
 
 
 
-  createPost(){
+  createPost() {
     this.dialog.open(CreatePostComponent);
   }
 
@@ -114,7 +106,7 @@ export class PostsComponent implements OnInit {
   }
 
 
-  editPost(id: number){
+  editPost(id: number) {
     this.dialog.open(EditPostComponent, {
       data: {
         id: id
@@ -143,7 +135,7 @@ export class PostsComponent implements OnInit {
     this.message
       .success('Post creado con exito!', { nzDuration: 2500 })
   }
-  
+
   messagePostEdited(): void {
     this.message
       .success('Post Editado con exito!', { nzDuration: 2500 })

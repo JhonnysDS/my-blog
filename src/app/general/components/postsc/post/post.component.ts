@@ -19,11 +19,12 @@ export class PostComponent implements OnInit {
   comments: any = []; // nueva propiedad para almacenar los comentarios
   constructor(
     private postService: PostService,
-    private route: ActivatedRoute,
-    private formBuilder: FormBuilder,
+    private route: ActivatedRoute
+
 
   ) {
-   
+
+
   }
 
   ngOnInit(): void {
@@ -36,6 +37,8 @@ export class PostComponent implements OnInit {
             
           });
       });
+      
+    
   }
 
 
