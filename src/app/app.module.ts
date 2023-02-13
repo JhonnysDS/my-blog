@@ -31,6 +31,7 @@ import { PageNotFoundComponent } from './general/errors/page-not-found/page-not-
 import { NzResultModule } from 'ng-zorro-antd/result';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { ServerErrorComponent } from './general/errors/server-error/server-error.component';
+import { HttpErrorInterceptor } from './general/errors/interceptors/http-error.interceptor';
 registerLocaleData(es);
 @NgModule({
   declarations: [
@@ -67,7 +68,10 @@ registerLocaleData(es);
     NzButtonModule
 
   ],
-  providers: [ { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }, { provide: NZ_I18N, useValue: es_ES },],
+  providers: [ { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+               { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
+               { provide: NZ_I18N, useValue: es_ES },],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }
