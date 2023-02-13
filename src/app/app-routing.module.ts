@@ -5,6 +5,7 @@ import { PostComponent } from './general/components/postsc/post/post.component';
 import { RegisterComponent } from './general/components/auth/register/register.component';
 import { LoginComponent } from './general/components/auth/login/login.component';
 import { AuthGuardGuard } from './guards/auth-guard.guard';
+import { PageNotFoundComponent } from './general/errors/page-not-found/page-not-found.component';
 const routes: Routes = [
   { path: '', 
   redirectTo: 'posts', 
@@ -26,7 +27,8 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
-  }
+  },
+  { path: '**', component: PageNotFoundComponent }
 
 ];
 

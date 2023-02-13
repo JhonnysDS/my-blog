@@ -27,8 +27,9 @@ import { DeletePostComponent } from './general/components/postsc/delete-post/del
 import { NzAlertModule } from 'ng-zorro-antd/alert';
 import { NzCommentModule } from 'ng-zorro-antd/comment';
 import { NzIconModule } from 'ng-zorro-antd/icon';
-
-
+import { PageNotFoundComponent } from './general/errors/page-not-found/page-not-found.component';
+import { NzResultModule } from 'ng-zorro-antd/result';
+import { NzButtonModule } from 'ng-zorro-antd/button';
 registerLocaleData(es);
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ registerLocaleData(es);
     SidenavComponent,
     DeleteCommentComponent,
     DeletePostComponent,
+    PageNotFoundComponent,
     
   ],
   imports: [
@@ -58,7 +60,9 @@ registerLocaleData(es);
     NzMessageModule,
     NzAlertModule,
     NzCommentModule,
-    NzIconModule
+    NzIconModule,
+    NzResultModule,
+    NzButtonModule
 
   ],
   providers: [ { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }, { provide: NZ_I18N, useValue: es_ES },],
