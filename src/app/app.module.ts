@@ -25,6 +25,9 @@ import es from '@angular/common/locales/es';
 import { NzMessageModule } from 'ng-zorro-antd/message';
 import { DeletePostComponent } from './general/components/postsc/delete-post/delete-post.component';
 import { NzAlertModule } from 'ng-zorro-antd/alert';
+import { NzCommentModule } from 'ng-zorro-antd/comment';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+
 
 registerLocaleData(es);
 @NgModule({
@@ -53,7 +56,9 @@ registerLocaleData(es);
     BrowserAnimationsModule,
     MaterialModule,
     NzMessageModule,
-    NzAlertModule
+    NzAlertModule,
+    NzCommentModule,
+    NzIconModule
 
   ],
   providers: [ { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }, { provide: NZ_I18N, useValue: es_ES },],

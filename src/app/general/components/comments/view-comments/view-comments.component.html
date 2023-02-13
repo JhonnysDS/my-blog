@@ -1,6 +1,6 @@
 <div class="comments-container" *ngIf="comments">
   <h1>Comentarios</h1>
-  <div class="comment" [ngClass]="{'hide-card': showMessageNotCommentsOn}"  *ngFor="let comment of comments">
+  <!-- <div class="comment" [ngClass]="{'hide-card': showMessageNotCommentsOn}"  *ngFor="let comment of comments">
 
     <mat-card class="mat-card">
       <mat-card-header class="mat-card-header">
@@ -20,6 +20,40 @@
 
       <mat-card-content>{{ comment.content }}</mat-card-content>
     </mat-card>
+  </div> -->
+  <div [ngClass]="{'hide-card': showMessageNotCommentsOn}"  *ngFor="let comment of comments">
+    
+    <nz-comment nzAuthor="{{comment.username}}" >
+      <nz-comment-content>
+        <p>
+          {{ comment.content }}
+        </p>
+      </nz-comment-content>
+
+          <nz-comment-action *ngIf="userId == comment.user_id">
+        <span
+          nz-tooltip
+          nzTitle="Editar"
+          nz-icon
+          nzType="edit"
+          (click)="editComment(comment.id)"
+
+
+        ></span>
+        <span class="count like"></span>
+      </nz-comment-action>
+      <nz-comment-action *ngIf="userId == comment.user_id">
+        <span
+          nz-tooltip
+          nzTitle="Eliminar"
+          nz-icon
+          nzType="delete"
+          (click)="deleteComment(comment.id)"
+        ></span>
+      </nz-comment-action>
+
+    
+    </nz-comment>
   </div>
   <div class="hide-card" [ngClass]="{'show': showMessageNotCommentsOn}" >
     <nz-alert nzType="info" nzMessage="Aún no hay comentarios para mostrar." nzShowIcon></nz-alert>
