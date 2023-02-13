@@ -30,6 +30,7 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { PageNotFoundComponent } from './general/errors/page-not-found/page-not-found.component';
 import { NzResultModule } from 'ng-zorro-antd/result';
 import { NzButtonModule } from 'ng-zorro-antd/button';
+import { ServerErrorComponent } from './general/errors/server-error/server-error.component';
 registerLocaleData(es);
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ registerLocaleData(es);
     DeleteCommentComponent,
     DeletePostComponent,
     PageNotFoundComponent,
+    ServerErrorComponent,
     
   ],
   imports: [
