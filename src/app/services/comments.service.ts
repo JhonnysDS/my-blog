@@ -15,16 +15,16 @@ export class CommentsService {
     ) { }
 
   getCommentsById(id: number){
-    return this.http.get(`http://127.0.0.1:5000/posts/${id}/comments`)
+    return this.http.get<any>(`http://127.0.0.1:5000/posts/${id}/comments`)
   }
 
   getComment(id: number){
-    return this.http.get<Comment[]>(`http://127.0.0.1:5000/comments/${id}`)
+    return this.http.get<any>(`http://127.0.0.1:5000/comments/${id}`)
 
   }
 
   createComment(id: number, comment: Comment){
-    return this.http.post<Comment[]>(`http://127.0.0.1:5000/posts/${id}/comments`, comment)
+    return this.http.post<any>(`http://127.0.0.1:5000/posts/${id}/comments`, comment)
   }
 
   editComment(id: number, comment: Comment){

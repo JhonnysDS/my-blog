@@ -16,6 +16,8 @@ export class ViewCommentsComponent implements OnInit {
   comments: any = [];
   userId: number = 0;
   @Input() postId: number = 0;
+  showMessageNotCommentsOn: boolean= false
+  showProgress: boolean = false
   constructor(
     private commentsService:CommentsService,
     private dialog: MatDialog,
@@ -41,6 +43,8 @@ export class ViewCommentsComponent implements OnInit {
     }
     //----------------------------------------------------------//
 
+    
+    
    }
 
   ngOnInit(): void {
@@ -62,8 +66,12 @@ export class ViewCommentsComponent implements OnInit {
   getComments(){
     setTimeout(()=>{
       this.commentsService.getCommentsById(this.postId)
-      .subscribe(data => {  
-        this.comments = data
+      .subscribe(data => {
+        if (data.message === "No yet commented on"){
+          this.showMessageNotCommentsOn = true
+        }else{
+          this.comments = data
+        }
       })
     }, 500
     

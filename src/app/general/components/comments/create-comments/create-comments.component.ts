@@ -13,6 +13,9 @@ export class CreateCommentsComponent implements OnInit {
   commentContent: string = '';
   form: FormGroup
   @Input() postId: number = 0;
+  showAlertNotBeEmpty:boolean = false;
+  showAlertNotBeCreated:boolean = false;
+
 
   constructor(
     private commentsService:CommentsService,
@@ -27,7 +30,6 @@ export class CreateCommentsComponent implements OnInit {
    }
 
   ngOnInit(): void {
-
     const postsData = {
       created: localStorage.getItem('commentCreated')
     };
@@ -43,13 +45,34 @@ export class CreateCommentsComponent implements OnInit {
     this.commentsService.createComment(this.postId, commentData)
   
     .subscribe(response => {    
+      if(response.error === "The content field cannot be empty"){
+        this.messageNotBeEmpty()
+      }else if(response.error === "The comment was not able to be created"){
+        this.messageNotCreated()
+      }else{
       this.router.navigate(['/post',this.postId])
       this.commentsService.sendData('success')
       localStorage.setItem('commentCreated', 'success');
       
       location.reload();
-      // manejar la respuesta del servidor  
+      }
+      
+   
     });
+  }
+
+  messageNotBeEmpty(): void {
+    this.showAlertNotBeEmpty = true;
+    setTimeout(() => {
+      this.showAlertNotBeEmpty = false
+    }, 3000)
+  }
+
+  messageNotCreated(): void {
+    this.showAlertNotBeCreated = true;
+    setTimeout(() => {
+      this.showAlertNotBeCreated = false
+    }, 5000)
   }
 
   messageCommentCreated(): void {

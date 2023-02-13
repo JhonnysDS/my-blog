@@ -1,5 +1,10 @@
 <div class="create-comment">
     <h3>Crear comentario</h3>
+    <div>
+        <nz-alert [ngClass]="{'show-alert': showAlertNotBeEmpty}" nzType="warning" nzMessage="El campo no debe estar vacio." class="alert" nzShowIcon></nz-alert>
+        <nz-alert [ngClass]="{'show-alert': showAlertNotBeCreated}" nzType="error" nzMessage="El comentario no pudo ser creado" class="alert" nzShowIcon></nz-alert>
+
+    </div>
     <form [formGroup]="form">
         <div class="form-group">
             <label for="content">Comentario</label>

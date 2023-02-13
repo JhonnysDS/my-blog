@@ -1,29 +1,30 @@
 <div class="comments-container" *ngIf="comments">
   <h1>Comentarios</h1>
-  <div class="comment" *ngFor="let comment of comments">
+  <div class="comment" [ngClass]="{'hide-card': showMessageNotCommentsOn}"  *ngFor="let comment of comments">
 
     <mat-card class="mat-card">
-      <mat-card-header class="mat-card-header"> 
-        <mat-card-title class="mat-card-title"><h2>{{comment.username}}</h2></mat-card-title>
+      <mat-card-header class="mat-card-header">
+        <mat-card-title class="mat-card-title">
+          <h2>{{comment.username}}</h2>
+        </mat-card-title>
         <div *ngIf="userId == comment.user_id">
           <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-              <mat-icon>more_vert</mat-icon>
+            <mat-icon>more_vert</mat-icon>
           </button>
           <mat-menu #menu="matMenu">
-              <button (click)="editComment(comment.id)" mat-menu-item>Editar</button>
-              <button (click)="deleteComment(comment.id)" mat-menu-item>Eliminar</button>
+            <button (click)="editComment(comment.id)" mat-menu-item>Editar</button>
+            <button (click)="deleteComment(comment.id)" mat-menu-item>Eliminar</button>
           </mat-menu>
-         </div>    
-        </mat-card-header>
-     
+        </div>
+      </mat-card-header>
+
       <mat-card-content>{{ comment.content }}</mat-card-content>
     </mat-card>
-
-    <h4></h4>
   </div>
-</div>
-<div class="progress-container" *ngIf="comments == 0">
-  <!-- <progress class="loading-progress"></progress> -->
-  
-<div class="ball"></div>
+  <div class="hide-card" [ngClass]="{'show': showMessageNotCommentsOn}" >
+    <nz-alert nzType="info" nzMessage="Aún no hay comentarios para mostrar." nzShowIcon></nz-alert>
+  </div>
+  <div  class="progress-container" [ngClass]="{'hide-progress': showMessageNotCommentsOn}" *ngIf="comments == 0">
+    <div class="ball"></div>
+  </div>
 </div>

@@ -6,6 +6,12 @@
         margin-bottom: 16px;
     }
 
+    .alert{
+      display: none;
+    }
+    .show-alert{
+      display: block;
+    }
     form {
         .form-group {
             margin-bottom: 16px;
@@ -24,6 +30,7 @@
                   border-color: #007bff;
                   outline: none;
                 }
+
             }
         }
 

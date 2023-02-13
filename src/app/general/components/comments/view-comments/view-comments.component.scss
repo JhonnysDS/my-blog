@@ -5,6 +5,13 @@
       font-weight: bold;
       margin-bottom: 16px;
     }
+    .hide-card{
+      display: none;
+    }
+    .show{
+      display:block
+    }
+
 
     .comment {
       margin: 0px auto;
@@ -63,5 +70,10 @@
 
   progress {
     width: 50%;
-  }
+  } 
 }
+.hide-progress{
+  display: none;
+}
+
+
