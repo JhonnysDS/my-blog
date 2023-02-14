@@ -32,6 +32,8 @@ import { NzResultModule } from 'ng-zorro-antd/result';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { ServerErrorComponent } from './general/errors/server-error/server-error.component';
 import { HttpErrorInterceptor } from './general/errors/interceptors/http-error.interceptor';
+import {NgxPaginationModule} from 'ngx-pagination';
+
 registerLocaleData(es);
 @NgModule({
   declarations: [
@@ -65,7 +67,8 @@ registerLocaleData(es);
     NzCommentModule,
     NzIconModule,
     NzResultModule,
-    NzButtonModule
+    NzButtonModule,
+    NgxPaginationModule
 
   ],
   providers: [ { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

@@ -1,5 +1,5 @@
 <section>
-    <div class="div-container" *ngFor="let post of posts">
+    <div class="div-container" *ngFor="let post of posts | paginate: { itemsPerPage: 8, currentPage: p }">
         <mat-card class="example-card">
     
             <mat-card-header  class="mat-card-header">
@@ -24,7 +24,12 @@
     
     </mat-card>
     </div>
+   
+    
 </section>
+<div class="paginator">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
 <div class="button-container">
     <button (click)="createPost()"
     matTooltip="CREAR NUEVO POST" 

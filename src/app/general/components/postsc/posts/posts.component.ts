@@ -23,7 +23,7 @@ export class PostsComponent implements OnInit {
   userId: number=0;
   showMenu = false;
   value: any = '';
-
+  p: number = 1;
 
 
   constructor(
