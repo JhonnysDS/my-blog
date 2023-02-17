@@ -48,7 +48,8 @@ export class ViewCommentsComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.userId = Number(localStorage.getItem("userId"));
+    this.userId = Number(localStorage.getItem("userId"))
+   
 
     this.getComments();
 
@@ -77,18 +78,6 @@ export class ViewCommentsComponent implements OnInit {
     
     )
   }
-
-  confirmDelete(): boolean {
-    return confirm("¿Estás seguro de que quieres eliminer este comentario?")
-  }
-  // deleteComment(id: number){
-  //   if(this.confirmDelete()){
-  //     this.commentsService.deleteComment(id)
-  //     .subscribe(response => {
-  //       location.reload();
-  //     })
-  //   }
-  // }
 
 
   deleteComment(id: number) {

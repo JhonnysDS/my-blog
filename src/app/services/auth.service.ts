@@ -25,6 +25,10 @@ export class AuthService {
     return this.http.post('http://localhost:5000/login', body)
   }
 
+  foundUser(id: number){
+    return this.http.get<any>(`http://localhost:5000/user/${id}`)
+  }
+
 
   //   addToken(token: string) {
   //     let headers = new HttpHeaders().set('Authorization', 'Bearer ' + token);

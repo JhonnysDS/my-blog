@@ -1,3 +1,4 @@
+import { registerLocaleData } from '@angular/common';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { LoginComponent } from './general/components/auth/login/login.component';
