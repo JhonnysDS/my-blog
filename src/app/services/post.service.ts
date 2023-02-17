@@ -30,7 +30,7 @@ export class PostService {
   }
 
   deletePost(id: number){
-    return this.http.delete<Post[]>(`http://127.0.0.1:5000/posts/${id}`)
+    return this.http.delete<any>(`http://127.0.0.1:5000/posts/${id}`)
   }
 
 
