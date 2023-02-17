@@ -24,8 +24,7 @@ export class PostsComponent implements OnInit {
   showMenu = false;
   value: any = '';
   p: number = 1;
-
-
+  countPost: number = 0
   constructor(
     private postService: PostService,
     private commentsService: CommentsService,
@@ -68,9 +67,7 @@ export class PostsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.postService.getAllPost()
-      .subscribe(data =>
-        this.posts = data)
+    this.getAllPosts()
 
 
     this.userId = Number(localStorage.getItem("userId"));
@@ -85,6 +82,18 @@ export class PostsComponent implements OnInit {
 
 
   }
+
+  getAllPosts(){
+    this.postService.getAllPost().subscribe(data => {
+      this.posts = data;
+      this.countPost= 0;
+      for (let i = 0; i < this.posts.length; i++) {
+        this.countPost++;
+      }
+      console.log('Número de posts:', this.countPost);
+    });
+  }
+  
 
 
 

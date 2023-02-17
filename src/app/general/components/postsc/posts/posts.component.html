@@ -1,3 +1,4 @@
+<p>Cantidad de posts: {{countPost}}</p>
 <section>
     <div class="div-container" *ngFor="let post of posts | paginate: { itemsPerPage: 8, currentPage: p }">
         <mat-card class="example-card">
@@ -27,7 +28,7 @@
    
     
 </section>
-<div class="paginator">
+<div class="paginator" *ngIf="countPost > 8">
     <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>
 <div class="button-container">
