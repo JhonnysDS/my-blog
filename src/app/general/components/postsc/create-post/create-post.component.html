@@ -7,6 +7,9 @@
                     <mat-form-field class="mat-form-field" appearance="fill">
                         <mat-label>Titulo</mat-label>
                         <input formControlName="title" matInput>
+                        <mat-error *ngIf="formCreate.controls['title'].touched && formCreate.controls['title'].hasError('required')">
+                            Este campo es requerido
+                        </mat-error>
                       </mat-form-field>
     
                 </div>
@@ -14,6 +17,9 @@
                     <mat-form-field class="mat-form-field " appearance="fill">
                         <mat-label>Descripción</mat-label>
                         <textarea class="textarea" formControlName="content" matInput></textarea>
+                        <mat-error *ngIf="formCreate.controls['content'].touched && formCreate.controls['content'].hasError('required')">
+                            Este campo es requerido
+                        </mat-error>
                       </mat-form-field>
                 </div>
 
@@ -22,7 +28,7 @@
 
         <div mat-dialog-actions>
             <button color="warn" mat-button mat-dialog-close>Cerrar</button>
-            <button color="primary" type="submit" [mat-dialog-close]="true" mat-button>Crear</button>
+            <button color="primary" [disabled]="formCreate.invalid"  type="submit" [mat-dialog-close]="true" mat-button>Crear</button>
 
         </div>
     </form>

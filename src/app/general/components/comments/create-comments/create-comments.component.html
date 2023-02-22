@@ -3,13 +3,16 @@
     <div>
         <nz-alert [ngClass]="{'show-alert': showAlertNotBeEmpty}" nzType="warning" nzMessage="El campo no debe estar vacio." class="alert" nzShowIcon></nz-alert>
         <nz-alert [ngClass]="{'show-alert': showAlertNotBeCreated}" nzType="error" nzMessage="El comentario no pudo ser creado" class="alert" nzShowIcon></nz-alert>
-
     </div>
     <form [formGroup]="form">
         <div class="form-group">
             <label for="content">Comentario</label>
+     
             <textarea formControlName="content" class="form-control"></textarea>
+            <mat-error *ngIf="form.controls['content'].touched && form.controls['content'].hasError('required')">
+                Este campo es requerido
+            </mat-error>
         </div>
-        <button (click)="createComment()" [disabled]="!form.valid" class="btn btn-primary">Crear comentario</button>
+        <button (click)="createComment()" [disabled]="form.invalid" class="btn btn-primary">Crear comentario</button>
     </form>
 </div>

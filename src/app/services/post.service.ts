@@ -21,7 +21,7 @@ export class PostService {
   }
 
   createPost(post: Post) {
-    return this.http.post<Post[]>('http://localhost:5000/create-posts', post);
+    return this.http.post<any>('http://localhost:5000/create-posts', post);
   }
 
   updatePost(id:number, title: string, content: string ){

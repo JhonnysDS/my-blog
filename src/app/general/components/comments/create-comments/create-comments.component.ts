@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CommentsService } from 'src/app/services/comments.service';
 import { Router } from '@angular/router';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { NzMessageService } from 'ng-zorro-antd/message';
 
 @Component({
@@ -25,7 +25,7 @@ export class CreateCommentsComponent implements OnInit {
 
   ) {
     this.form=this.formBuilder.group({
-      content: ['',]
+      content: ['',Validators.required]
     })
    }
 

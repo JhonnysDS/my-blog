@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { PostService } from 'src/app/services/post.service';
 import { Router } from '@angular/router';
+import { NzMessageService } from 'ng-zorro-antd/message';
 @Component({
   selector: 'app-create-post',
   templateUrl: './create-post.component.html',
@@ -14,22 +15,35 @@ export class CreatePostComponent implements OnInit {
   })
 
   constructor(
-    private postService:PostService,
-    private router: Router
+    private postService: PostService,
+    private router: Router,
+    private message: NzMessageService
   ) { }
 
   ngOnInit(): void {
    
   }
 
-  onSubmit(form: any){
+  MessageFieldsRequire(): void {
+    this.message.error('El titulo y el contenido son requeridos');
+  }
+
+  onSubmit(form: any) {
     this.postService.createPost(form)
       .subscribe(data => {
-      localStorage.setItem('postCreated', 'Success');
-      this.postService.sendData('sucess')
-        location.reload()
-    })
+        if (data.message === 'Title and content are required') {
+          this.MessageFieldsRequire() 
+        } else {
+          localStorage.setItem('postCreated', 'Success');
+          this.postService.sendData('sucess')
+          location.reload()
+        }
+
+
+      })
   }
+
+
 
 
 }
