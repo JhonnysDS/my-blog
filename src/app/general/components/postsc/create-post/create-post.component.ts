@@ -16,7 +16,6 @@ export class CreatePostComponent implements OnInit {
 
   constructor(
     private postService: PostService,
-    private router: Router,
     private message: NzMessageService
   ) { }
 
@@ -29,7 +28,9 @@ export class CreatePostComponent implements OnInit {
   }
 
   onSubmit(form: any) {
-    this.postService.createPost(form)
+    const postData = [form]; // Agregamos los datos dentro de un arreglo
+  
+    this.postService.createPost(postData)
       .subscribe(data => {
         if (data.message === 'Title and content are required') {
           this.MessageFieldsRequire() 
@@ -38,10 +39,9 @@ export class CreatePostComponent implements OnInit {
           this.postService.sendData('sucess')
           location.reload()
         }
-
-
       })
   }
+  
 
 
 

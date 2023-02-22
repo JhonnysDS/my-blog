@@ -20,7 +20,7 @@ export class PostService {
   
   }
 
-  createPost(post: Post) {
+  createPost(post: any) {
     return this.http.post<any>('http://localhost:5000/create-posts', post);
   }
 
