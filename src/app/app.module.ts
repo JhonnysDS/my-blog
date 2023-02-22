@@ -33,6 +33,7 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { ServerErrorComponent } from './general/errors/server-error/server-error.component';
 import { HttpErrorInterceptor } from './general/errors/interceptors/http-error.interceptor';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { UserComponent } from './general/components/auth/user/user.component';
 
 registerLocaleData(es);
 @NgModule({
@@ -52,6 +53,7 @@ registerLocaleData(es);
     DeletePostComponent,
     PageNotFoundComponent,
     ServerErrorComponent,
+    UserComponent,
     
   ],
   imports: [

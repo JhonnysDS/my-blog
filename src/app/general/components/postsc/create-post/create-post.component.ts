@@ -26,6 +26,9 @@ export class CreatePostComponent implements OnInit {
   MessageFieldsRequire(): void {
     this.message.error('El titulo y el contenido son requeridos');
   }
+  MessagePostExist(): void {
+    this.message.info('Lo sentimos pero ya existe un post con este título');
+  }
 
   onSubmit(form: any) {
     const postData = [form]; // Agregamos los datos dentro de un arreglo
@@ -34,7 +37,10 @@ export class CreatePostComponent implements OnInit {
       .subscribe(data => {
         if (data.message === 'Title and content are required') {
           this.MessageFieldsRequire() 
-        } else {
+        } else if (data.message === 'This post already exists'){
+          this.MessagePostExist()
+          
+        }else{
           localStorage.setItem('postCreated', 'Success');
           this.postService.sendData('sucess')
           location.reload()
