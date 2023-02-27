@@ -32,7 +32,6 @@ export class LoginComponent implements OnInit {
           this.messageLoginFailed()
         } else {
           localStorage.setItem('token', res.token);
-          localStorage.setItem('userId', res.user_id);
           this.router.navigate(["/posts/"]);
           this.loadingLogin()
           localStorage.setItem('userLoggedIn', 'success');

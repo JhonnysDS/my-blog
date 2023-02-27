@@ -8,6 +8,7 @@ import { EditPostComponent } from '../edit-post/edit-post.component';
 import { CreatePostComponent } from '../create-post/create-post.component';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { DeletePostComponent } from '../delete-post/delete-post.component';
+import jwt_decode from 'jwt-decode';
 
 
 
@@ -69,8 +70,12 @@ export class PostsComponent implements OnInit {
   ngOnInit(): void {
     this.getAllPosts()
 
-
-    this.userId = Number(localStorage.getItem("userId"));
+    
+    const token = localStorage.getItem("token");
+    if (token) {
+      const decodedToken: any = jwt_decode(token);
+      this.userId = decodedToken.id;
+    }
 
 
     //Funcion para mostrar el loading del mensahe al crear el post.

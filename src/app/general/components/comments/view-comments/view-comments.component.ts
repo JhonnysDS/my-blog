@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { EditCommentsComponent } from '../edit-comments/edit-comments.component';
 import { DeleteCommentComponent } from '../delete-comment/delete-comment.component';
 import { NzMessageService } from 'ng-zorro-antd/message';
+import jwt_decode from 'jwt-decode';
 
 
 @Component({
@@ -48,7 +49,11 @@ export class ViewCommentsComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.userId = Number(localStorage.getItem("userId"))
+    const token = localStorage.getItem("token");
+    if (token) {
+      const decodedToken: any = jwt_decode(token);
+      this.userId = decodedToken.id;
+    }
    
 
     this.getComments();

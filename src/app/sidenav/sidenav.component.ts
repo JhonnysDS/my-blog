@@ -39,7 +39,6 @@ export class SidenavComponent implements OnInit {
 
   logout() {
     localStorage.removeItem('token');
-    localStorage.removeItem('userId');
     location.reload()
   }
 
