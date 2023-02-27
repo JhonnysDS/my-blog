@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import jwt_decode from 'jwt-decode';
+
 @Component({
   selector: 'app-sidenav',
   templateUrl: './sidenav.component.html',
@@ -19,7 +21,11 @@ export class SidenavComponent implements OnInit {
   ){}
 
   ngOnInit(): void {
-    this.userId = Number(localStorage.getItem("userId"));
+    const token = localStorage.getItem("token");
+    if (token) {
+      const decodedToken: any = jwt_decode(token);
+      this.userId = decodedToken.id;
+    }
 
     this.getUsername()
   }
