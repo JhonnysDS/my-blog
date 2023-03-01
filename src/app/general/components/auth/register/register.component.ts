@@ -9,6 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
   form: FormGroup
+  registerMessage: string = '';
   showAlert: boolean = false;
   constructor(
     private formBuilder: FormBuilder,
@@ -31,15 +32,25 @@ export class RegisterComponent implements OnInit {
   onSubmitForm(){
     this.authService.registerUser(this.form.value)
     .subscribe(res => {
-      if (res.message === 'Error creating user') {
+      if (res.message === 'Error creating user') {    
+        this.registerMessage = "Error al crear el usuario."
         this.messageRegisterFailed()
-      } else {
+      } else if (res.message === 'sorry, the email and the username already exist') {
+        this.registerMessage = "Lo sentimos, este usuario y correo ya existen"
+        this.messageRegisterFailed()
+      }else if (res.message ==='sorry, the username already exist'){
+        this.registerMessage = "Lo sentimos, este usuario ya existe"
+        this.messageRegisterFailed()
+      }else if (res.message ==='sorry, the email already exist'){
+        this.registerMessage = "Lo sentimos, ya existe una cuenta con este correo"
+        this.messageRegisterFailed()
+      }else{
         this.onSubmitFormLogin()
       }
 
     }
     )
-    
+
   }
 
   messageRegisterFailed(): void {

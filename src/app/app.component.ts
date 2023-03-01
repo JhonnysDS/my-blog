@@ -22,7 +22,7 @@ export class AppComponent {
 
     this.isLoggedIn = this.authService.isLoggedIn();
     if (!this.isLoggedIn) {
-      this.componentToShow = LoginComponent;
+      this.componentToShow = RegisterComponent;
 
     } else {
       this.componentToShow = SidenavComponent;

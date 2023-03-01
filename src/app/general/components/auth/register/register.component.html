@@ -21,7 +21,7 @@
                                 placeholder="Ingrese su correo">
                         </mat-form-field>
                         <nz-alert [ngClass]="{'show': showAlert}" nzType="error"
-                            nzMessage="Usuario o contreseña incorrecto" class="alert"></nz-alert>
+                            nzMessage="{{registerMessage}}" class="alert"></nz-alert>
 
                         <button mat-raised-button type="submit" color="primary">Registrarse</button>
 
