@@ -15,12 +15,10 @@ const routes: Routes = [
   {
     path: 'posts', 
     component: PostsComponent,
-    canActivate: [AuthGuardGuard]
   },
   {
     path: 'post/:id', 
     component: PostComponent,
-    // canActivate: [AuthGuardGuard]
   },
   {
     path: 'register',

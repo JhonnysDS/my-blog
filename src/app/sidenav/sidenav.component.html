@@ -7,21 +7,28 @@
         </div>
         <div class="div-container-per-info">
             <div class="div-avatar">
-                <label for="toggle"><img src="../../../assets/images/general/img_avatar.png" alt="Avatar"  class="avatar"></label>
-                
+                <label for="toggle"><img src="../../../assets/images/general/img_avatar.png" alt="Avatar"
+                        class="avatar"></label>
+
             </div>
             <div class="div-navbar-per-infor">
                 <h2>{{username}}</h2>
                 <p>Desarrollador</p>
             </div>
-            <div class="div-triangle-icon" >
-                <!-- <i class="fa-sharp fa-solid fa-caret-down fa-2x"></i> -->
+            <!-- <div class="div-triangle-icon" >
                 <label for="toggle" ><i class="fa-sharp fa-solid fa-caret-down fa-2x"></i></label>
                 <input type="checkbox" id="toggle">
                 <ul id="menu">
                     <li>Mi perfil</li>
                     <li (click)="logout()" >Cerrar sesión</li>
                 </ul>
+            </div> -->
+            <div class="div-more-expand">
+                <button mat-button [matMenuTriggerFor]="beforeMenu"><mat-icon>expand_more</mat-icon></button>
+                <mat-menu #beforeMenu="matMenu" xPosition="before">
+                    <button mat-menu-item>Mi perfil</button>
+                    <button (click)="logout()" mat-menu-item>Cerrar sesión</button>
+                </mat-menu>
             </div>
         </div>
     </div>

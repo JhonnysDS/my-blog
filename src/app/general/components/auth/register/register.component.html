@@ -23,7 +23,7 @@
                         <nz-alert [ngClass]="{'show': showAlert}" nzType="error"
                             nzMessage="{{registerMessage}}" class="alert"></nz-alert>
 
-                        <button mat-raised-button type="submit" color="primary">Registrarse</button>
+                        <button mat-raised-button [disabled]="form.invalid" type="submit" color="primary">Registrarse</button>
 
                         <p>¿Ya tienes una cuenta? <a (click)="redirectToLogin()">Iniciar sesión</a></p>
 
