@@ -58,7 +58,7 @@ export class LoginComponent implements OnInit {
       .loading('Cargando...', { nzDuration: 2500 })
   }
 
-  register() {
+  redirectToRegister() {
     this.router.navigate(['/register']);
     setTimeout(() => {
     location.reload()
