@@ -84,59 +84,7 @@
               color: white;
             }
 
-            .div-triangle-icon{
-                margin: 0px 20px;
-                i{
-                    color: white;
-                    cursor: pointer;
-                }
-
-                label {
-                    display: inline-block;
-
-                    color: #fff;
-                    padding: 0.5em 1em;
-                    border-radius: 4px;
-                    cursor: pointer;
-                  }
-                  
-                  #menu {
-                    list-style: none;
-                    padding: 0;
-                    margin: 0;
-                    background-color: $color1;
-                    color: #fff;
-                    border-radius: 4px;
-                    display: none;
-                    position: absolute;
-                    top: calc(100% + 5px);
-                    position: fixed;
-                    right: 15px;
-                    top: 62px;
-                
-                  }
-                  
-                  #menu li {
-                    padding: 0.5em 1em;
-                    cursor: pointer;
-                  }
-                  #menu li:hover {
-                    background-color: $color2;
-                  }
-                  
-                  #menu a {
-                    color: #fff;
-                  }
-                  
-                  #toggle:checked + #menu {
-                    display: block;
-                  }
-                  
-                  input[type="checkbox"] {
-                    display: none;
-                  }
-                  
-            }
+          
         }
     }
 
