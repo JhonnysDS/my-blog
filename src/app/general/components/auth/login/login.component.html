@@ -26,7 +26,7 @@
         
                     <button [disabled]="form.invalid" mat-raised-button type="submit" color="primary">Iniciar sesión</button>
         
-                    <p>¿No tienes una cuenta? <a routerLink="/register">Registrarse</a> </p>
+                    <p>¿No tienes una cuenta? <a (click)="register()">>Registrarse</a> </p>
         
                 </form>
                </div>

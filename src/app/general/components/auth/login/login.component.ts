@@ -57,5 +57,13 @@ export class LoginComponent implements OnInit {
     this.message
       .loading('Cargando...', { nzDuration: 2500 })
   }
+
+  register() {
+    this.router.navigate(['/register']);
+    setTimeout(() => {
+    location.reload()
+    },100)
+  
+}
 }
 

@@ -1,11 +1,11 @@
 import { registerLocaleData } from '@angular/common';
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { LoginComponent } from './general/components/auth/login/login.component';
 import { RegisterComponent } from './general/components/auth/register/register.component';
 import { AuthService } from './services/auth.service';
 import { SidenavComponent } from './sidenav/sidenav.component';
-
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -17,13 +17,16 @@ export class AppComponent {
 
   constructor(
     private authService: AuthService,
-    private route: ActivatedRoute
+    private location: Location
   ) {
-
     this.isLoggedIn = this.authService.isLoggedIn();
     if (!this.isLoggedIn) {
-      this.componentToShow = RegisterComponent;
-
+      const currentPath = this.location.path();
+      if (currentPath === '/register') {
+        this.componentToShow = RegisterComponent;
+      } else {
+        this.componentToShow = LoginComponent;
+      }
     } else {
       this.componentToShow = SidenavComponent;
     }
