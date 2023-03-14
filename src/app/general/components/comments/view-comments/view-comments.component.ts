@@ -79,7 +79,7 @@ export class ViewCommentsComponent implements OnInit {
           this.comments = data
         }
       })
-    }, 500
+    }, 1000
     
     )
   }

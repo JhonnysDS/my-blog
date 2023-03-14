@@ -17,8 +17,8 @@
             </div>
             <div class="div-more-expand">
                 <button mat-button [matMenuTriggerFor]="beforeMenu"><mat-icon>expand_more</mat-icon></button>
-                <mat-menu #beforeMenu="matMenu" xPosition="before">
-                    <button mat-menu-item>Mi perfil</button>
+                <mat-menu  class="mat-menu" #beforeMenu="matMenu" xPosition="before">
+                    <button  mat-menu-item>Mi perfil</button>
                     <button (click)="logout()" mat-menu-item>Cerrar sesión</button>
                 </mat-menu>
             </div>

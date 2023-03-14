@@ -82,6 +82,11 @@
             }
             .div-more-expand{
               color: white;
+              .mat-menu{
+                background: red;
+                position: fixed;
+                right: 25px;
+              }
             }
 
           
