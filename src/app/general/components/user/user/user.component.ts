@@ -11,7 +11,11 @@ export class UserComponent implements OnInit {
   username: string = ''
   email: string = ''
   created: string = ''
-  constructor(private authService: AuthService) { }
+  editUser: boolean = true
+  constructor(private authService: AuthService) { 
+  
+  
+  }
 
   ngOnInit(): void {
     const token = localStorage.getItem("token");
@@ -24,6 +28,7 @@ export class UserComponent implements OnInit {
     this.getDatasUser()
   }
 
+
   getDatasUser(){
     this.authService.foundUser(this.userId)
     .subscribe(response => {
@@ -35,4 +40,6 @@ export class UserComponent implements OnInit {
     
   }
 
+
 }
+

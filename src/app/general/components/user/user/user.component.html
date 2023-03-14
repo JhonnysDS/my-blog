@@ -1,0 +1,47 @@
+<section class="class-section">
+    <div *ngIf="!editUser" class="div-container">
+        <div class="div-container-img">
+            <img src="../../../../../assets/images/general/img_avatar.png" alt="">
+        </div>
+        <div class="div-container-text">
+            <div>
+                <h2>Información de mi perfil</h2>
+            </div>
+            <div>
+                <h3> <strong>Usuario: </strong> <span>{{username}}</span></h3>
+                <h3><strong>Correo: </strong> <span>{{email}}</span></h3>
+            </div>
+            <div class="div-container-buttons">
+                <button mat-raised-button color="primary">Actualizar datos</button>
+                <button mat-raised-button color="warn">Cambiar contraseña</button>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="editUser" class="div-container">
+        <div class="div-container-img">
+            <img src="../../../../../assets/images/general/img_avatar.png" alt="">
+        </div>
+        <div class="div-container-text div-container-form-edit">
+            <div>
+                <h2>Actualizar datos</h2>
+            </div>
+            <form action="">
+                <mat-form-field class="form-field" appearance="outline">
+                    <mat-label>Usuario</mat-label>
+                    <input matInput>
+                </mat-form-field>
+
+                <mat-form-field class="form-field" appearance="outline">
+                    <mat-label>Correo</mat-label>
+                    <input matInput>
+                </mat-form-field>
+                <div class="div-button">
+                    <button mat-raised-button class="button-submit" color="primary">Actualizar datos</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+</section>

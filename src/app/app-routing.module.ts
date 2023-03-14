@@ -7,7 +7,7 @@ import { LoginComponent } from './general/components/auth/login/login.component'
 import { AuthGuardGuard } from './guards/auth-guard.guard';
 import { PageNotFoundComponent } from './general/errors/page-not-found/page-not-found.component';
 import { ServerErrorComponent } from './general/errors/server-error/server-error.component';
-import { UserComponent } from './general/components/auth/user/user.component';
+import { UserComponent } from './general/components/user/user/user.component';
 const routes: Routes = [
   { path: '', 
   redirectTo: 'posts', 

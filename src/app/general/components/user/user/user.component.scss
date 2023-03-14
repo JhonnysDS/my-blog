@@ -20,6 +20,7 @@
         }
         .div-container-text{
             margin-top: 20px;
+            width: 350px    ;
             div{
                 h2{
 
@@ -39,6 +40,23 @@
                 display: flex;
                 justify-content: space-evenly;
                 margin-top: 25%;
+            }
+
+        }
+
+        .div-container-form-edit{
+            text-align: center;
+            form{
+                    width: 100%;
+                    .form-field{
+                        width: 100%;
+                    }
+                    .div-button{
+                        display: flex;
+                        justify-content: right;
+                    }
+                   
+                
             }
         }
     }
