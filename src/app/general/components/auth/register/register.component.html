@@ -4,22 +4,26 @@
             <div class="div-login-info-container-son">
                 <div class="div-form">
                     <h1 class="title">Registrarse</h1>
-                    <form action="" class="inputs-container" [formGroup]="form" (ngSubmit)="onSubmitForm()">
+                    <form action="" class="inputs-container" [formGroup]="form" (ngSubmit)="onSubmitForm()" enctype="multipart/form-data">
                         <mat-form-field class="form-field" appearance="outline">
                             <mat-label>Nombre de usuario</mat-label>
-                            <input autocomplete="off" type="text" formControlName="username" matInput
+                            <input autocomplete="off" type="text" formControlName="username" matInput 
                                 placeholder="Ingrese su nombre usuario">
                         </mat-form-field>
                         <mat-form-field class="form-field" appearance="outline">
                             <mat-label>contraseña</mat-label>
-                            <input type="password" formControlName="password" matInput
+                            <input type="password" formControlName="password" matInput  
                                 placeholder="Ingrese su contraseña">
                         </mat-form-field>
                         <mat-form-field class="form-field" appearance="outline">
                             <mat-label>Correo</mat-label>
-                            <input autocomplete="off" formControlName="email" type="email" matInput
+                            <input autocomplete="off" formControlName="email" type="email" matInput 
                                 placeholder="Ingrese su correo">
                         </mat-form-field>
+                        <div>
+                            <label for="">Imagen</label>
+                            <input (change)="onFileSelected($event)" #fileInput type="file" accept="image/*">
+                        </div>
                         <nz-alert [ngClass]="{'show': showAlert}" nzType="error"
                             nzMessage="{{registerMessage}}" class="alert"></nz-alert>
 
