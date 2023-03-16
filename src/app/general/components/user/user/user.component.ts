@@ -47,6 +47,25 @@ export class UserComponent implements OnInit {
     
   }
 
+  previewImage: string | null = '';
+  fileName: string|null = '';
+  onFileSelected(event: any): void {
+    const file: File = event.target.files[0];
+    if (file) {
+      this.fileName = file.name;
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = (e: any) => {
+        this.previewImage = e.target.result;
+      };
+    }
+  }
+
+  removeImage(): void {
+    this.previewImage = null;
+    this.fileName = null;
+  }
+
 
 }
 

@@ -20,7 +20,33 @@
 
     <div *ngIf="editUser" class="div-container">
         <div class="div-container-img">
-            <img *ngIf="avatar" [src]="avatarUrl + avatar" alt="">
+            <div class="container-img-edit">
+                <div class="form-group">
+                    <label for="fileInput">Selecciona una imagen:</label>
+                    <div class="upload-btn" (click)="fileInput.click()">
+                      <img src="https://img.icons8.com/ios-glyphs/30/000000/image-file.png" />
+                      <span *ngIf="!previewImage">Elegir archivo</span>
+                      <span *ngIf="previewImage">{{ fileName }}</span>
+                    </div>
+                    
+                    <input
+                      type="file"
+                      id="fileInput"
+                      #fileInput
+                      (change)="onFileSelected($event)"
+                      accept="image/*"
+                    />
+                    <div class="container-image">
+                    <img
+                      *ngIf="previewImage"
+                      [src]="previewImage"
+                      class="preview-image"
+                    />
+                    <div *ngIf="previewImage" class="remove-btn" (click)="removeImage()">X</div>
+                    </div>
+                    
+                  </div>
+            </div>
         </div>
         <div class="div-container-text div-container-form-edit">
             <div>
@@ -36,6 +62,7 @@
                     <mat-label>Correo</mat-label>
                     <input matInput>
                 </mat-form-field>
+
                 <div class="div-button">
                     <button mat-raised-button class="button-submit" color="primary">Actualizar datos</button>
                 </div>
