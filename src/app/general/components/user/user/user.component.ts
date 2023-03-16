@@ -42,6 +42,11 @@ export class UserComponent implements OnInit {
 
   }
 
+  updateDataButton(){
+    this.editUser = !this.editUser
+    
+  }
+
 
 }
 
