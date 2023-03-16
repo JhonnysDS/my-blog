@@ -1,7 +1,7 @@
 <section class="class-section">
     <div *ngIf="!editUser" class="div-container">
         <div class="div-container-img">
-            <img src="../../../../../assets/images/general/img_avatar.png" alt="">
+               <img [src]="avatarUrl + avatar" alt="">
         </div>
         <div class="div-container-text">
             <div>
@@ -20,7 +20,7 @@
 
     <div *ngIf="editUser" class="div-container">
         <div class="div-container-img">
-            <img src="../../../../../assets/images/general/img_avatar.png" alt="">
+            <img src="{{avatar}}" alt="">
         </div>
         <div class="div-container-text div-container-form-edit">
             <div>
