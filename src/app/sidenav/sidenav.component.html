@@ -7,8 +7,8 @@
         </div>
         <div class="div-container-per-info">
             <div class="div-avatar">
-                <label for="toggle"><img src="../../../assets/images/general/img_avatar.png" alt="Avatar"
-                        class="avatar"></label>
+                <img *ngIf="avatar" [src]="avatarUrl + avatar" alt="Avatar"
+                        class="avatar">
 
             </div>
             <div class="div-navbar-per-infor">

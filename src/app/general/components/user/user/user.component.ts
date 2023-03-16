@@ -14,10 +14,8 @@ export class UserComponent implements OnInit {
   avatar: FileUpload | string | null = null;
   editUser: boolean = false
   avatarUrl = 'http://localhost:5000/static/images/profile/'
-  constructor(private authService: AuthService) {
 
-
-  }
+  constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
     const token = localStorage.getItem("token");
@@ -26,11 +24,10 @@ export class UserComponent implements OnInit {
       this.userId = decodedToken.id;
 
     }
-
     this.getDatasUser()
+    
   }
-
-
+  
   getDatasUser() {
     this.authService.foundUser(this.userId)
     .subscribe(response => {
