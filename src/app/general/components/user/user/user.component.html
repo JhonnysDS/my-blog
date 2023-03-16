@@ -1,5 +1,5 @@
 <section class="class-section">
-    <div *ngIf="!editUser" class="div-container">
+    <div *ngIf="!showEditUser && !showChangePassword" class="div-container">
         <div  class="div-container-img">
                <img *ngIf="avatar" [src]="avatarUrl + avatar" alt="">
         </div>
@@ -13,12 +13,12 @@
             </div>
             <div class="div-container-buttons">
                 <button (click)="updateDataButton()" mat-raised-button color="primary">Actualizar datos</button>
-                <button mat-raised-button color="warn">Cambiar contraseña</button>
+                <button (click)="changePasswordButton()" mat-raised-button color="warn">Cambiar contraseña</button>
             </div>
         </div>
     </div>
 
-    <div *ngIf="editUser" class="div-container">
+    <div *ngIf="showEditUser && !showChangePassword" class="div-container">
         <div class="div-container-img">
             <div class="container-img-edit">
                 <div class="form-group">
@@ -55,12 +55,12 @@
             <form action="">
                 <mat-form-field class="form-field" appearance="outline">
                     <mat-label>Usuario</mat-label>
-                    <input matInput>
+                    <input type="text" matInput>
                 </mat-form-field>
 
                 <mat-form-field class="form-field" appearance="outline">
                     <mat-label>Correo</mat-label>
-                    <input matInput>
+                    <input type="email" matInput>
                 </mat-form-field>
 
                 <div class="div-button">
@@ -71,5 +71,31 @@
         </div>
     </div>
 
+    <div *ngIf="showChangePassword" class="div-container">
+        <div class="div-container-img">
+            <img *ngIf="avatar" [src]="avatarUrl + avatar" alt="">
+        </div>
+        <div class="div-container-text div-container-form-edit">
+            <div>
+                <h2>Cambiar contraseña</h2>
+            </div>
+            <form action="">
+                <mat-form-field class="form-field" appearance="outline">
+                    <mat-label>Contraseña actual</mat-label>
+                    <input type="password" matInput>
+                </mat-form-field>
+
+                <mat-form-field class="form-field" appearance="outline">
+                    <mat-label>Nueva contraseña</mat-label>
+                    <input type="password" matInput>
+                </mat-form-field>
+
+                <div class="div-button">
+                    <button mat-raised-button (click)="changePasswordButton()" class="button-submit" color="primary">Volver</button>
+                    <button mat-raised-button class="button-submit" color="warn">Actualizar datos</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
 </section>

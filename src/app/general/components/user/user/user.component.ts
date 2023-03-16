@@ -12,7 +12,8 @@ export class UserComponent implements OnInit {
   username: string = ''
   email: string = ''
   avatar: FileUpload | string | null = null;
-  editUser: boolean = false
+  showEditUser: boolean = false
+  showChangePassword: boolean = false
   avatarUrl = 'http://localhost:5000/static/images/profile/'
 
   constructor(private authService: AuthService) {}
@@ -43,8 +44,12 @@ export class UserComponent implements OnInit {
   }
 
   updateDataButton(){
-    this.editUser = !this.editUser
+    this.showEditUser = !this.showEditUser
     
+  }
+
+  changePasswordButton(){
+    this.showChangePassword = !this.showChangePassword
   }
 
   previewImage: string | null = '';
