@@ -12,11 +12,13 @@ export class UserComponent implements OnInit {
   username: string = ''
   email: string = ''
   avatar: FileUpload | string | null = null;
+  avatarPreview: FileUpload | string | null = null
+  imageName: string | null = null;
   showEditUser: boolean = false
   showChangePassword: boolean = false
   avatarUrl = 'http://localhost:5000/static/images/profile/'
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
     const token = localStorage.getItem("token");
@@ -26,34 +28,42 @@ export class UserComponent implements OnInit {
 
     }
     this.getDatasUser()
-    
+
   }
-  
+
   getDatasUser() {
     this.authService.foundUser(this.userId)
-    .subscribe(response => {
-      this.username = response.username;
-      this.email = response.email;
-      const avatarString = response.avatar.replace(/'/g, '"').replace(/True/g, 'true');
-      this.avatar = JSON.parse(avatarString);
-      if (this.avatar && typeof this.avatar === 'object' && this.avatar.imageServer) {
-        this.avatar = `${this.avatar.imagePath}${this.avatar.imageExt}`;
-      }
-    });
+      .subscribe(response => {
+        this.username = response.username;
+        this.email = response.email;
+        const avatarString = response.avatar.replace(/'/g, '"').replace(/True/g, 'true');
+        this.avatar = JSON.parse(avatarString);
+        if (this.avatar && typeof this.avatar === 'object' && this.avatar.imageServer) {
+          this.imageName = this.avatar.imageName;
+          this.avatar = `${this.avatar.imagePath}${this.avatar.imageExt}`;
+          this.avatarPreview = this.avatar
+          
+        }
+
+
+
+
+
+      });
 
   }
 
-  updateDataButton(){
+  updateDataButton() {
     this.showEditUser = !this.showEditUser
-    
+
   }
 
-  changePasswordButton(){
+  changePasswordButton() {
     this.showChangePassword = !this.showChangePassword
   }
 
   previewImage: string | null = '';
-  fileName: string|null = '';
+  fileName: string | null = '';
   onFileSelected(event: any): void {
     const file: File = event.target.files[0];
     if (file) {
@@ -69,6 +79,9 @@ export class UserComponent implements OnInit {
   removeImage(): void {
     this.previewImage = null;
     this.fileName = null;
+    this.imageName = null;
+    this.avatarPreview = ''
+
   }
 
 

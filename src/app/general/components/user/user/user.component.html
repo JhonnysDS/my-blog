@@ -1,11 +1,11 @@
 <section class="class-section">
     <div *ngIf="!showEditUser && !showChangePassword" class="div-container">
-        <div  class="div-container-img">
-               <img *ngIf="avatar" [src]="avatarUrl + avatar" alt="">
+        <div class="div-container-img">
+            <img *ngIf="avatar" [src]="avatarUrl + avatar" alt="{{avatarUrl}}">
         </div>
         <div class="div-container-text">
             <div>
-                <h2>Información de mi perfil</h2>
+                <h2>Información de mi perfil </h2>
             </div>
             <div>
                 <h3> <strong>Usuario: </strong> <span>{{username}}</span></h3>
@@ -24,28 +24,21 @@
                 <div class="form-group">
                     <label for="fileInput">Selecciona una imagen:</label>
                     <div class="upload-btn" (click)="fileInput.click()">
-                      <img src="https://img.icons8.com/ios-glyphs/30/000000/image-file.png" />
-                      <span *ngIf="!previewImage">Elegir archivo</span>
-                      <span *ngIf="previewImage">{{ fileName }}</span>
+                        <img src="https://img.icons8.com/ios-glyphs/30/000000/image-file.png" />
+                        <span *ngIf="!previewImage && !imageName">Elegir archivo</span>
+                        <span *ngIf="previewImage || !imageName">{{ fileName }}</span>
+                        <span *ngIf="imageName && !previewImage">{{ imageName }}</span>
+
                     </div>
-                    
-                    <input
-                      type="file"
-                      id="fileInput"
-                      #fileInput
-                      (change)="onFileSelected($event)"
-                      accept="image/*"
-                    />
+
+                    <input type="file" id="fileInput" #fileInput (change)="onFileSelected($event)" accept="image/*" />
                     <div class="container-image">
-                    <img
-                      *ngIf="previewImage"
-                      [src]="previewImage"
-                      class="preview-image"
-                    />
-                    <div *ngIf="previewImage" class="remove-btn" (click)="removeImage()">X</div>
+                        <img *ngIf="previewImage || avatarPreview instanceof String" [src]="previewImage || avatarUrl + avatarPreview" class="preview-image" />
+                        <div *ngIf="previewImage ||  avatarPreview instanceof String" class="remove-btn" (click)="removeImage()">X</div>
+
                     </div>
-                    
-                  </div>
+
+                </div>
             </div>
         </div>
         <div class="div-container-text div-container-form-edit">
@@ -64,7 +57,8 @@
                 </mat-form-field>
 
                 <div class="div-button">
-                    <button mat-raised-button (click)="updateDataButton()" class="button-submit" color="primary">Volver</button>
+                    <button mat-raised-button (click)="updateDataButton()" class="button-submit"
+                        color="primary">Volver</button>
                     <button mat-raised-button class="button-submit" color="warn">Actualizar datos</button>
                 </div>
             </form>
@@ -91,7 +85,8 @@
                 </mat-form-field>
 
                 <div class="div-button">
-                    <button mat-raised-button (click)="changePasswordButton()" class="button-submit" color="primary">Volver</button>
+                    <button mat-raised-button (click)="changePasswordButton()" class="button-submit"
+                        color="primary">Volver</button>
                     <button mat-raised-button class="button-submit" color="warn">Actualizar datos</button>
                 </div>
             </form>
