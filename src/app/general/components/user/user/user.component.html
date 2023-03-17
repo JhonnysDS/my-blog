@@ -19,47 +19,50 @@
     </div>
 
     <div *ngIf="showEditUser && !showChangePassword" class="div-container">
-        <div class="div-container-img">
-            <div class="container-img-edit">
-                <div class="form-group">
-                    <label for="fileInput">Selecciona una imagen:</label>
-                    <div class="upload-btn" (click)="fileInput.click()">
-                        <img src="https://img.icons8.com/ios-glyphs/30/000000/image-file.png" />
-                        <span *ngIf="!previewImage && !imageName">Elegir archivo</span>
-                        <span *ngIf="previewImage || !imageName">{{ fileName }}</span>
-                        <span *ngIf="imageName && !previewImage">{{ imageName }}</span>
-
-                    </div>
-
-                    <input type="file" id="fileInput" #fileInput (change)="onFileSelected($event)" accept="image/*" />
-                    <div class="container-image">
-                        <img *ngIf="previewImage || avatarPreview instanceof String" [src]="previewImage || avatarUrl + avatarPreview" class="preview-image" />
-                        <div *ngIf="previewImage ||  avatarPreview instanceof String" class="remove-btn" (click)="removeImage()">X</div>
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
+       
         <div class="div-container-text div-container-form-edit">
             <div>
                 <h2>Actualizar datos</h2>
             </div>
-            <form action="">
+            <form [formGroup]="formUpdate">
+
+                <div class="div-container-img">
+                    <div class="container-img-edit">
+                        <div class="form-group">
+                            <label for="fileInput">Selecciona una imagen:</label>
+                            <div class="upload-btn" (click)="fileInput.click()">
+                                <img src="https://img.icons8.com/ios-glyphs/30/000000/image-file.png" />
+                                <span *ngIf="!previewImage && !imageName">Elegir archivo</span>
+                                <span *ngIf="previewImage || !imageName">{{ fileName }}</span>
+                                <span *ngIf="imageName && !previewImage">{{ imageName }}</span>
+        
+                            </div>
+        
+                            <input type="file" id="fileInput" (change)="onFileSelectedFormUpdate($event)" #fileInput (change)="onFileSelected($event)" accept="image/*" />
+                            <div class="container-image">
+                                <img *ngIf="previewImage || avatarPreview instanceof String" [src]="previewImage || avatarUrl + avatarPreview" class="preview-image" />
+                                <div *ngIf="previewImage ||  avatarPreview instanceof String" class="remove-btn" (click)="removeImage()">X</div>
+        
+                            </div>
+        
+                        </div>
+                    </div>
+                </div>
+
                 <mat-form-field class="form-field" appearance="outline">
                     <mat-label>Usuario</mat-label>
-                    <input type="text" matInput>
+                    <input formControlName="username" type="text" matInput>
                 </mat-form-field>
 
                 <mat-form-field class="form-field" appearance="outline">
                     <mat-label>Correo</mat-label>
-                    <input type="email" matInput>
+                    <input formControlName="email" type="email" matInput>
                 </mat-form-field>
 
                 <div class="div-button">
                     <button mat-raised-button (click)="updateDataButton()" class="button-submit"
                         color="primary">Volver</button>
-                    <button mat-raised-button class="button-submit" color="warn">Actualizar datos</button>
+                    <button mat-raised-button (click)="onUpdatePersonaInfo()" class="button-submit" color="warn">Actualizar datos</button>
                 </div>
             </form>
         </div>
@@ -73,7 +76,7 @@
             <div>
                 <h2>Cambiar contraseña</h2>
             </div>
-            <form action="">
+            <form >
                 <mat-form-field class="form-field" appearance="outline">
                     <mat-label>Contraseña actual</mat-label>
                     <input type="password" matInput>
