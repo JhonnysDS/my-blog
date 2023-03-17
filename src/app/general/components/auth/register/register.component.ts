@@ -71,26 +71,21 @@ export class RegisterComponent implements OnInit {
   onSubmitForm() {
     this.authService.registerUser(this.form.value)
     .subscribe(res => {
-      if (res.message === 'Error creating user') {    
+      if (res[0].message === 'error creating user') {    
         this.registerMessage = "Error al crear el usuario."
         this.messageRegisterFailed()
-      } else if (res.message === 'sorry, the email and the username already exist') {
-        this.registerMessage = "Lo sentimos, este usuario y correo ya existen"
+      } else if (res[0].message === 'the user can not be created') {
+        this.registerMessage = "El usuario no pudo ser creado."
         this.messageRegisterFailed()
-      }else if (res.message ==='sorry, the username already exist'){
+      }else if (res[0].message ==='this user already exist'){
         this.registerMessage = "Lo sentimos, este usuario ya existe"
-        this.messageRegisterFailed()
-      }else if (res.message ==='sorry, the email already exist'){
-        this.registerMessage = "Lo sentimos, ya existe una cuenta con este correo"
         this.messageRegisterFailed()
       }else{
         this.onSubmitFormLogin()
       }
-
+      
     }
     )
-
-    console.log(this.form.value);
     
   }
 
