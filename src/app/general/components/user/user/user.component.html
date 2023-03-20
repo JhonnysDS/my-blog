@@ -51,12 +51,12 @@
 
                 <mat-form-field class="form-field" appearance="outline">
                     <mat-label>Usuario</mat-label>
-                    <input formControlName="username" type="text" matInput>
+                    <input [ngModel]="username" formControlName="username" type="text" matInput>
                 </mat-form-field>
 
                 <mat-form-field class="form-field" appearance="outline">
                     <mat-label>Correo</mat-label>
-                    <input formControlName="email" type="email" matInput>
+                    <input [ngModel]="email" formControlName="email" type="email" matInput>
                 </mat-form-field>
 
                 <div class="div-button">

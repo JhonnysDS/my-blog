@@ -20,6 +20,7 @@ export class UserComponent implements OnInit {
   avatarUrl = 'http://localhost:5000/static/images/profile/'
   formUpdate: FormGroup;
   imageUpload: FileUpload | null = null;
+  imageServer: FileUpload | null = null
 
   
 
@@ -51,13 +52,15 @@ export class UserComponent implements OnInit {
         this.email = response.email;
         const avatarString = response.avatar.replace(/'/g, '"').replace(/True/g, 'true');
         this.avatar = JSON.parse(avatarString);
+        //tomamos la imagen del servidor y la convertimospara mostrarla en la imagen previa
         if (this.avatar && typeof this.avatar === 'object' && this.avatar.imageServer) {
           this.imageName = this.avatar.imageName;
           this.avatar = `${this.avatar.imagePath}${this.avatar.imageExt}`;
           this.avatarPreview = this.avatar
-          
         }
       });
+
+
   }
 
   file: any;
@@ -87,7 +90,6 @@ export class UserComponent implements OnInit {
         // Actualiza el valor del control "avatar" del formulario con el valor actual de "imageUpload"
         this.formUpdate.patchValue({ avatar: this.imageUpload });
       };
-      
       reader.readAsDataURL(this.file);
     }
     
@@ -95,6 +97,7 @@ export class UserComponent implements OnInit {
 
   onUpdatePersonaInfo(){
     console.log(this.formUpdate.value);
+    
     
   }
 
@@ -125,6 +128,9 @@ export class UserComponent implements OnInit {
     this.fileName = null;
     this.imageName = null;
     this.avatarPreview = ''
+
+    this.imageUpload = null
+    this.formUpdate.patchValue({ avatar: this.imageUpload });
   }
 
 
