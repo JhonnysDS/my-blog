@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { User } from '../model/user.model';
+import { User, UserUpdate } from '../model/user.model';
 import jwt_decode, { JwtPayload } from 'jwt-decode';
 
 @Injectable({
@@ -17,6 +17,10 @@ export class AuthService {
 
   registerUser(user: User) {
     return this.http.post<any>('http://localhost:5000/register', user)
+  }
+
+  updateUser(id: number, userUpdate: UserUpdate){
+    return this.http.put<any>(`http://localhost:5000/update/user/${id}`, userUpdate)
   }
 
   loginUser(username: string, password: string): Observable<any> {

@@ -96,9 +96,11 @@ export class UserComponent implements OnInit {
   }
 
   onUpdatePersonaInfo(){
-    console.log(this.formUpdate.value);
-    
-    
+    this.authService.updateUser(this.userId, this.formUpdate.value)
+    .subscribe(res =>{
+      console.log(res);
+      
+    }) 
   }
 
   updateDataButton() {

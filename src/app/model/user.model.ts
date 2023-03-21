@@ -5,3 +5,9 @@ export interface User {
     password: string;
     avatar: string;
   }
+
+export interface UserUpdate{
+  username: string;
+  email: string;
+  avatar?: string;
+}
