@@ -3,6 +3,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import jwt_decode from 'jwt-decode';
 import { FileUpload } from 'src/app/model/fileUpload.model';
 import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NzMessageService } from 'ng-zorro-antd/message';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -26,7 +27,8 @@ export class UserComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private message: NzMessageService
     ) {
       this.formUpdate = this.formBuilder.group({
         username: ['', Validators.required],
@@ -43,6 +45,19 @@ export class UserComponent implements OnInit {
       this.userId = decodedToken.id;
     }
     this.getDatasUser()
+
+    
+
+    //Ejecutamos la alerta al momento de recargar la pagina cuando se edite los datos
+    const userAlerts = {
+      edited:localStorage.getItem('userUpdated')
+    };
+
+    if (userAlerts.edited) {
+      this.messageUserUpdatedSucces()
+      localStorage.removeItem('userUpdated');
+    }
+
   }
 
   getDatasUser() {
@@ -98,7 +113,14 @@ export class UserComponent implements OnInit {
   onUpdatePersonaInfo(){
     this.authService.updateUser(this.userId, this.formUpdate.value)
     .subscribe(res =>{
-      console.log(res);
+      if (res.message === 'user updated successfully'){
+        localStorage.setItem('userUpdated', 'success');
+        location.reload()
+      }else if (res.message === 'This username already exist, please write other.'){
+        this.messageUserUpdatedUsernameFailed()
+      }else if (res.message === 'This email already exist, please write other.'){
+        this.messageUserUpdatedEmailFailed()
+      }
       
     }) 
   }
@@ -133,6 +155,18 @@ export class UserComponent implements OnInit {
 
     this.imageUpload = null
     this.formUpdate.patchValue({ avatar: this.imageUpload });
+  }
+
+  messageUserUpdatedSucces(): void {
+    this.message.success('¡Tus datos se han actualizado con exito!');
+  }
+
+  messageUserUpdatedUsernameFailed(): void {
+    this.message.error('El nombre de usuario ya existe. Por favor, elija otro.');
+  }
+
+  messageUserUpdatedEmailFailed(): void {
+    this.message.error('El correo electrónico ya existe. Por favor, elija otro.');
   }
 
 
