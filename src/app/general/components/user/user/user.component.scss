@@ -151,6 +151,13 @@
             flex-direction: column;
             width: 100%;
 
+            .div-container-title{
+                h2{
+                    font-size: 25px;
+                    text-transform: uppercase;
+                }
+            }
+
             form {
                 width: 100%;
                 display: flex;
