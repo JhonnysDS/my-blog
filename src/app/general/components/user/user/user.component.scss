@@ -153,20 +153,28 @@
 
             form {
                 width: 100%;
+                display: flex;
+                justify-content: space-around;
+                align-items: flex-end;
 
-                .form-field {
-                    width: 100%;
-                    margin-top: 15px;
-                }
-
-                .div-button {
-                    display: flex;
-                    justify-content: right;
-
-                    button{
-                        margin-right: 10px;
+                .container-fields-buttons{
+                    margin-left: 15px;
+                    .form-field {
+                        width: 100%;
+                        margin-top: 15px;
+                    }
+    
+                    .div-button {
+                        display: flex;
+                        justify-content: right;
+    
+                        button{
+                            margin-right: 10px;
+                        }
                     }
                 }
+
+
 
 
             }
@@ -184,9 +192,25 @@
             min-width: 390px;
             max-width: 390px;
 
+
+            .div-container-form-edit {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+        
+                form {
+                   
+                    display: block;
+                }
+            }
+
         }
     }
+   
 }
+
+
+
 
 @media screen and (max-width: 442px) {
     .class-section {

@@ -20,7 +20,7 @@
 
     <div *ngIf="showEditUser && !showChangePassword" class="div-container">
        
-        <div class="div-container-text div-container-form-edit">
+        <div class=" div-container-form-edit">
                 <div class="div-container-title">
                     <h2>Actualizar datos</h2>
                 </div>
@@ -49,21 +49,25 @@
                         </div>
                     </div>
 
-                <mat-form-field class="form-field" appearance="outline">
-                    <mat-label>Usuario</mat-label>
-                    <input [ngModel]="username" formControlName="username" type="text" matInput>
-                </mat-form-field>
+                    <div class="container-fields-buttons">
+                        <mat-form-field class="form-field" appearance="outline">
+                            <mat-label>Usuario</mat-label>
+                            <input [ngModel]="username" formControlName="username" type="text" matInput>
+                        </mat-form-field>
+        
+                        <mat-form-field class="form-field" appearance="outline">
+                            <mat-label>Correo</mat-label>
+                            <input [ngModel]="email" formControlName="email" type="email" matInput>
+                        </mat-form-field>
+        
+                        <div class="div-button">
+                            <button mat-raised-button (click)="updateDataButton()" class="button-submit"
+                                color="primary">Volver</button>
+                            <button mat-raised-button (click)="onUpdatePersonaInfo()" class="button-submit" color="warn">Actualizar datos</button>
+                        </div>
+                    </div>
 
-                <mat-form-field class="form-field" appearance="outline">
-                    <mat-label>Correo</mat-label>
-                    <input [ngModel]="email" formControlName="email" type="email" matInput>
-                </mat-form-field>
-
-                <div class="div-button">
-                    <button mat-raised-button (click)="updateDataButton()" class="button-submit"
-                        color="primary">Volver</button>
-                    <button mat-raised-button (click)="onUpdatePersonaInfo()" class="button-submit" color="warn">Actualizar datos</button>
-                </div>
+                
             </form>
         </div>
     </div>
