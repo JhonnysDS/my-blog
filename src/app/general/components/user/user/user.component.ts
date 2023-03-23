@@ -20,6 +20,7 @@ export class UserComponent implements OnInit {
   showChangePassword: boolean = false
   avatarUrl = 'http://localhost:5000/static/images/profile/'
   formUpdate: FormGroup;
+  formChangePass: FormGroup;
   imageUpload: FileUpload | null = null;
   imageServer: FileUpload | null = null
 
@@ -36,7 +37,14 @@ export class UserComponent implements OnInit {
         avatar: [this.imageUpload],
 
       })
+
+      this.formChangePass = this.formBuilder.group({
+        old_password: ['', Validators.required],
+        new_password: ['', Validators.required]
+      })
      }
+
+
 
   ngOnInit(): void {
     const token = localStorage.getItem("token");
@@ -50,14 +58,17 @@ export class UserComponent implements OnInit {
 
     //Ejecutamos la alerta al momento de recargar la pagina cuando se edite los datos
     const userAlerts = {
-      edited:localStorage.getItem('userUpdated')
+      edited:localStorage.getItem('userUpdated'),
+      passwordChanged: localStorage.getItem('passwordChanged')
     };
 
     if (userAlerts.edited) {
       this.messageUserUpdatedSucces()
       localStorage.removeItem('userUpdated');
+    } else if (userAlerts.passwordChanged){
+      this.messagePasswordChanged()
+      localStorage.removeItem('passwordChanged')
     }
-
   }
 
   getDatasUser() {
@@ -125,6 +136,18 @@ export class UserComponent implements OnInit {
     }) 
   }
 
+  onChangePassword(){
+    this.authService.changePassword(this.userId, this.formChangePass.value)
+    .subscribe(res => {
+      if(res.message === 'The old password is incorrect'){
+        this.messageOldPasswordFailed()
+      }else if (res.message === 'Password changed successfully'){
+        localStorage.setItem('passwordChanged', 'success');
+        location.reload()
+      }
+    })
+  }
+
   updateDataButton() {
     this.showEditUser = !this.showEditUser
   }
@@ -167,6 +190,14 @@ export class UserComponent implements OnInit {
 
   messageUserUpdatedEmailFailed(): void {
     this.message.error('El correo electrónico ya existe. Por favor, elija otro.');
+  }
+
+  messageOldPasswordFailed(): void {
+    this.message.error('La contraseña actual es incorrecta.');
+  }
+
+  messagePasswordChanged(): void {
+    this.message.success('La contraseña ha sido cambiada con éxito.');
   }
 
 

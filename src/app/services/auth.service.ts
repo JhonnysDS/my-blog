@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { User, UserUpdate } from '../model/user.model';
+import { User, UserUpdate, ChangePassword } from '../model/user.model';
 import jwt_decode, { JwtPayload } from 'jwt-decode';
 
 @Injectable({
@@ -21,6 +21,10 @@ export class AuthService {
 
   updateUser(id: number, userUpdate: UserUpdate){
     return this.http.put<any>(`http://localhost:5000/update/user/${id}`, userUpdate)
+  }
+
+  changePassword(id: number, changePassword: ChangePassword ){
+    return this.http.put<any>(`http://localhost:5000/change/password/${id}`, changePassword)
   }
 
   loginUser(username: string, password: string): Observable<any> {

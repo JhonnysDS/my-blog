@@ -11,3 +11,8 @@ export interface UserUpdate{
   email: string;
   avatar?: string;
 }
+
+export interface ChangePassword{
+  old_password: any;
+  new_password: any;
+}

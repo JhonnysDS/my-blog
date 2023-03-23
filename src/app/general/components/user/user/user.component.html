@@ -79,22 +79,22 @@
             <div>
                 <h2>Cambiar contraseña</h2>
             </div>
-            <form >
+            <form [formGroup]="formChangePass">
                 <div class="div-container-field-buttons-password">
                     <mat-form-field class="form-field" appearance="outline">
                         <mat-label>Contraseña actual</mat-label>
-                        <input type="password" matInput>
+                        <input formControlName="old_password" type="password" matInput>
                     </mat-form-field>
     
                     <mat-form-field class="form-field" appearance="outline">
                         <mat-label>Nueva contraseña</mat-label>
-                        <input type="password" matInput>
+                        <input formControlName="new_password" type="password" matInput>
                     </mat-form-field>
     
                     <div class="div-button">
                         <button mat-raised-button (click)="changePasswordButton()" class="button"
                             color="primary">Volver</button>
-                        <button mat-raised-button class="button" color="warn">Actualizar datos</button>
+                        <button mat-raised-button class="button" (click)="onChangePassword()" color="warn">Actualizar datos</button>
                     </div>
                 </div>
 
