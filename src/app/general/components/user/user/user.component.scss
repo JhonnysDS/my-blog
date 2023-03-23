@@ -181,6 +181,19 @@
                     }
                 }
 
+                .div-container-field-buttons-password{
+                    display: flex;
+                    flex-direction: column;
+                    width: 80%;
+                    .div-button{
+                        display: flex;
+                        justify-content: flex-end;
+                        button{
+                            margin-left: 15px;
+                        }
+                    }
+                }
+
 
 
 
@@ -208,6 +221,19 @@
                 form {
                    
                     display: block;
+
+
+
+                    .div-container-field-buttons-password{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        width: 100%;
+                        .form-field{
+                            width: 100%;
+                        }
+                    }
                 }
             }
 
@@ -326,6 +352,50 @@
                 }
     
 
+            }
+
+            .div-container-form-edit{
+                .div-container-title{
+                    
+                    text-align: center;
+                    h2{
+                        font-size: 18px;
+                    }
+                }
+                form{
+                    .div-container-img{
+                        display: flex;
+                        justify-content: center;
+                        .container-img-edit{
+                            width: 85%;
+                        }
+                    }
+                    .container-fields-buttons{
+                        .form-field {
+                            width: 85%;
+                            margin-left: 10px;
+                        }
+        
+                        .div-button {
+                            justify-content: center;
+                            button{
+                                font-size: 10px;
+
+                            }
+                        }
+                    }
+                    .div-container-field-buttons-password{
+                        .form-field{
+                            width: 80%;
+                        }
+                        .div-button{
+                           .button{
+                                font-size: 10px;
+                            }
+                        }
+                        
+                    }
+                }
             }
 
         }
