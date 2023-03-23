@@ -34,6 +34,7 @@ import { ServerErrorComponent } from './general/errors/server-error/server-error
 import { HttpErrorInterceptor } from './general/errors/interceptors/http-error.interceptor';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { UserComponent } from './general/components/user/user/user.component';
+import { ForgotPasswordComponent } from './general/components/auth/forgot-password/forgot-password.component';
 
 registerLocaleData(es);
 @NgModule({
@@ -54,6 +55,7 @@ registerLocaleData(es);
     PageNotFoundComponent,
     ServerErrorComponent,
     UserComponent,
+    ForgotPasswordComponent,
     
   ],
   imports: [

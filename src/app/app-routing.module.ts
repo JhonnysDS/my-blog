@@ -8,6 +8,7 @@ import { AuthGuardGuard } from './guards/auth-guard.guard';
 import { PageNotFoundComponent } from './general/errors/page-not-found/page-not-found.component';
 import { ServerErrorComponent } from './general/errors/server-error/server-error.component';
 import { UserComponent } from './general/components/user/user/user.component';
+import { ForgotPasswordComponent } from './general/components/auth/forgot-password/forgot-password.component';
 const routes: Routes = [
   { path: '', 
   redirectTo: 'posts', 
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: 'profile',
     component: UserComponent
+  },
+  {
+    path: 'password/forgot',
+    component: ForgotPasswordComponent
   },
   { 
     path: 'server-error', 

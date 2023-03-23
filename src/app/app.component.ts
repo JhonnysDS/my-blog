@@ -6,6 +6,7 @@ import { RegisterComponent } from './general/components/auth/register/register.c
 import { AuthService } from './services/auth.service';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { Location } from '@angular/common';
+import { ForgotPasswordComponent } from './general/components/auth/forgot-password/forgot-password.component';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -24,6 +25,8 @@ export class AppComponent {
       const currentPath = this.location.path();
       if (currentPath === '/register') {
         this.componentToShow = RegisterComponent;
+      } else if(currentPath === '/password/forgot'){
+        this.componentToShow = ForgotPasswordComponent
       } else {
         this.componentToShow = LoginComponent;
       }
