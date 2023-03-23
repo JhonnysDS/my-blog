@@ -33,11 +33,12 @@ export class SidenavComponent implements OnInit {
     this.getUsername()
   }
 
+
   getUsername(){
     this.authService.foundUser(this.userId)
     .subscribe(response => {
       this.username = response.username
-      const avatarString = response.avatar.replace(/'/g, '"').replace(/True/g, 'true');
+      const avatarString = response.avatar.replace(/'/g, '"');
       this.avatar = JSON.parse(avatarString);
       if (this.avatar && typeof this.avatar === 'object' && this.avatar.imageServer) {
         this.avatar = `${this.avatar.imagePath}${this.avatar.imageExt}`;

@@ -5,7 +5,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { EditCommentsComponent } from '../edit-comments/edit-comments.component';
 import { DeleteCommentComponent } from '../delete-comment/delete-comment.component';
 import { NzMessageService } from 'ng-zorro-antd/message';
+import { AuthService } from 'src/app/services/auth.service';
 import jwt_decode from 'jwt-decode';
+import { FileUpload } from 'src/app/model/fileUpload.model';
 
 
 @Component({
@@ -19,12 +21,16 @@ export class ViewCommentsComponent implements OnInit {
   @Input() postId: number = 0;
   showMessageNotCommentsOn: boolean= false
   showProgress: boolean = false
+  avatarUrl = 'http://localhost:5000/static/images/profile/'
+  avatar: string;
   constructor(
     private commentsService:CommentsService,
     private dialog: MatDialog,
     private message: NzMessageService,
+    private authService: AuthService
 
   ) {
+    this.avatar=''
 
     
     //Alertas de succes al editar y eliminar comentario
@@ -67,12 +73,16 @@ export class ViewCommentsComponent implements OnInit {
 
   }
 
+  
+
 
 
   getComments(){
     setTimeout(()=>{
       this.commentsService.getCommentsById(this.postId)
       .subscribe(data => {
+        console.log(data);
+        
         if (data.message === "No yet commented on"){
           this.showMessageNotCommentsOn = true
         }else{
@@ -83,6 +93,19 @@ export class ViewCommentsComponent implements OnInit {
     
     )
   }
+
+  getAvatar(commentAvatar: any) {
+      const avatarString = commentAvatar.replace(/'/g, '"');
+      const avatarObj = JSON.parse(avatarString);
+      if (avatarObj && typeof avatarObj === 'object' && avatarObj.imageServer) {
+        this.avatar = `${this.avatarUrl}${avatarObj.imagePath}${avatarObj.imageExt}`;
+      };
+    return this.avatar;
+  }
+  
+  
+
+
 
 
   deleteComment(id: number) {
@@ -122,5 +145,6 @@ export class ViewCommentsComponent implements OnInit {
     this.message
       .success('El comentario fue eliminado', { nzDuration: 2500 })
   }
+
 
 }
