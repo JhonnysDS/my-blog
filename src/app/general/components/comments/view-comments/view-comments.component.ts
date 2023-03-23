@@ -22,7 +22,7 @@ export class ViewCommentsComponent implements OnInit {
   showMessageNotCommentsOn: boolean= false
   showProgress: boolean = false
   avatarUrl = 'http://localhost:5000/static/images/profile/'
-  avatar: string;
+  avatar: string = '';
   constructor(
     private commentsService:CommentsService,
     private dialog: MatDialog,
@@ -30,9 +30,6 @@ export class ViewCommentsComponent implements OnInit {
     private authService: AuthService
 
   ) {
-    this.avatar=''
-
-    
     //Alertas de succes al editar y eliminar comentario
     const commentData = {
       edited: localStorage.getItem('commentEdited'),
