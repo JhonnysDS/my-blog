@@ -23,7 +23,7 @@ export class RegisterComponent implements OnInit {
       username: ['', Validators.required],
       email: ['', Validators.required],
       password: ['', Validators.required],
-      avatar: [this.imageUpload]
+      avatar: [this.imageUpload, Validators.required]
     })
 
   }
