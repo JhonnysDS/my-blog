@@ -22,7 +22,7 @@
                     </mat-form-field>
                     <nz-alert [ngClass]="{'show': showAlert}" nzType="error" nzMessage="Usuario o contreseña incorrecto" class="alert"></nz-alert>
         
-                    <p>¿haz olvidado tu contraseña? <a href="">Click aquí</a> </p>
+                    <p>¿haz olvidado tu contraseña? <a (click)="redirectToForgot()">Click aquí</a> </p>
         
                     <button [disabled]="form.invalid" mat-raised-button type="submit" color="primary">Iniciar sesión</button>
         

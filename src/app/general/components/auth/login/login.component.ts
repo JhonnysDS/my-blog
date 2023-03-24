@@ -63,7 +63,13 @@ export class LoginComponent implements OnInit {
     setTimeout(() => {
     location.reload()
     },100)
-  
-}
+  }
+
+  redirectToForgot() {
+    this.router.navigate(['/password/forgot']);
+    setTimeout(() => {
+    location.reload()
+    },100)
+  }
 }
 
